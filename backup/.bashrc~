@@ -1,0 +1,71 @@
+# Sample .bashrc for SuSE Linux
+# Copyright (c) SuSE GmbH Nuernberg
+
+# There are 3 different types of shells in bash: the login shell, normal shell
+# and interactive shell. Login shells read ~/.profile and interactive shells
+# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
+# settings made here will also take effect in a login shell.
+#
+# NOTE: It is recommended to make language settings in ~/.profile rather than
+# here, since multilingual X sessions would not work properly if LANG is over-
+# ridden in every subshell.
+
+# Some applications read the EDITOR variable to determine your favourite text
+# editor. So uncomment the line below and enter the editor of your choice :-)
+#export EDITOR=/usr/bin/vim
+#export EDITOR=/usr/bin/mcedit
+
+# For some news readers it makes sense to specify the NEWSSERVER variable here
+#export NEWSSERVER=your.news.server
+
+# If you want to use a Palm device with Linux, uncomment the two lines below.
+# For some (older) Palm Pilots, you might need to set a lower baud rate
+# e.g. 57600 or 38400; lowest is 9600 (very slow!)
+#
+#export PILOTPORT=/dev/pilot
+#export PILOTRATE=115200
+
+test -s ~/.alias && . ~/.alias || true
+
+#Alias
+alias loginNord="ssh -X bsc19685@nord3.bsc.es"
+alias matacompss="~/utils/matacompss"
+alias loginMN="ssh -X bsc19685@mn3.bsc.es"
+alias ..="cd .."
+alias ll="ls -lah"
+alias diskspace="du -S | sort -n -r | more"
+
+export JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk/
+export PATH=/opt/maven/bin:$PATH
+
+#Deploy COMPSs at SC:
+
+#Nord
+alias deployNord="pushd ~/svn/compss/framework/trunk/builders/scs/nord/;./buildNord bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN3/COMPSs/Trunk/;popd"
+alias deployNordcustom="pushd ~/svn/compss/framework/trunk/builders/scs/nord/;./buildNord bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN3/COMPSs/TrunkCarlos/;popd"
+
+#MN
+alias deployMN="pushd ~/svn/compss/framework/trunk/builders/scs/mn/;./buildMN bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN4/COMPSs/Trunk/;popd"
+alias deployMNcustom="pushd ~/svn/compss/framework/trunk/builders/scs/mn/;./buildMN bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN4/COMPSs/TrunkCarlos/;popd"
+
+#Exctracting script
+extract () {
+    if [ -f $1  ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1    ;;
+            *.tar.gz)    tar xvzf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar xvjf $1    ;;
+            *.tgz)       tar xvzf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}

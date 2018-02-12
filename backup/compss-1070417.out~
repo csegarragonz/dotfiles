@@ -1,0 +1,77 @@
+-------- Launch arguments --------
+Master:                    s07r1b11
+Workers:                    s07r1b12 s07r1b13 s07r1b14 s07r1b15 s07r1b17 s07r1b21 s07r1b22 s07r1b23 s07r1b24
+Tasks per Node:            -1
+CPUs per Node:             48
+GPUs per Node:             0
+CPU Affinity:              automatic
+GPU Affinity:              automatic
+Network:                   -ib0
+Worker in Master CPUs:     40
+Worker in Master Memory:   92
+Master Port:               43709
+Master WD:                 .
+Worker WD:                 /scratch/tmp
+Master JVM Opts:           
+Workers JVM Opts:          -Xms16000m,-Xmx92000m,-Xmn1600m
+Worker in Master JVM Opts: 
+Library Path:              /home/bsc19/bsc19685/apps/DBSCAN
+Classpath:                 /home/bsc19/bsc19685/apps/DBSCAN
+Pythonpath:                /home/bsc19/bsc19685/apps/DBSCAN
+Appdir:			   /home/bsc19/bsc19685/apps/DBSCAN
+Lang:                      python
+COMM:                      es.bsc.compss.nio.master.NIOAdaptor
+Prolog:                    
+Epilog:                    
+Storage conf:              null
+Task execution:            compss
+To COMPSs:                  --tracing=false --log_level=off --lang=python /home/bsc19/bsc19685/apps/DBSCAN/./DBSCAN.py 0.1 10 3
+-----------------------------------
+ 
+Master will run in s07r1b11
+List of workers:  s07r1b12 s07r1b13 s07r1b14 s07r1b15 s07r1b17 s07r1b21 s07r1b22 s07r1b23 s07r1b24
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b11 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b12 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b13 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b14 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b15 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b17 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b21 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b22 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b23 mkdir -p /scratch/tmp
+Worker WD mkdir: srun -n1 -N1 --nodelist=s07r1b24 mkdir -p /scratch/tmp
+Generation of resources and project file finished
+Project.xml:   /scratch/tmp/project_mn_1517478255.xml
+Resources.xml: /scratch/tmp/resources_1517478255.xml
+---- Executing Prolog actions ----
+------ Launching application ------
+CMD Worker 1 launcher: srun -n1 -N1 --nodelist=s07r1b11 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0                          false             5             5             s07r1b11-ib0             43001             43709             40             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b11-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             1             null             compss 	    false
+CMD Worker 2 launcher: srun -n1 -N1 --nodelist=s07r1b12 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b12-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b12-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             2             null             compss 	    false
+CMD Worker 3 launcher: srun -n1 -N1 --nodelist=s07r1b13 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b13-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b13-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             3             null             compss 	    false
+CMD Worker 4 launcher: srun -n1 -N1 --nodelist=s07r1b14 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b14-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b14-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             4             null             compss 	    false
+CMD Worker 5 launcher: srun -n1 -N1 --nodelist=s07r1b15 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b15-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b15-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             5             null             compss 	    false
+CMD Worker 6 launcher: srun -n1 -N1 --nodelist=s07r1b17 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b17-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b17-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             6             null             compss 	    false
+CMD Worker 7 launcher: srun -n1 -N1 --nodelist=s07r1b21 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b21-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b21-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             7             null             compss 	    false
+CMD Worker 8 launcher: srun -n1 -N1 --nodelist=s07r1b22 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b22-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b22-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             8             null             compss 	    false
+CMD Worker 9 launcher: srun -n1 -N1 --nodelist=s07r1b23 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b23-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b23-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             9             null             compss 	    false
+CMD Worker 10 launcher: srun -n1 -N1 --nodelist=s07r1b24 /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/system/adaptors/nio/persistent_worker_starter.sh /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             3             -Xms16000m -Xmx92000m -Xmn1600m             false             5             5             s07r1b24-ib0             43001             43709             48             0             automatic             automatic             -1             1bd47bdb-828a-4c31-9fd1-3ff53e52f664             python             /scratch/tmp/1bd47bdb-828a-4c31-9fd1-3ff53e52f664/s07r1b24-ib0             /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../../             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             /home/bsc19/bsc19685/apps/DBSCAN             0             null             10             null             compss 	    false
+CMD Master: /apps/COMPSs/TrunkCarlos/Runtime/scripts/user/../../..//Runtime/scripts/user/runcompss --project=/scratch/tmp/project_mn_1517478255.xml             --resources=/scratch/tmp/resources_1517478255.xml             --uuid=1bd47bdb-828a-4c31-9fd1-3ff53e52f664             --specific_log_dir=/home/bsc19/bsc19685/.COMPSs/1070417/             --master_name=s07r1b11-ib0             --master_port=43709             --jvm_master_opts=""             --jvm_workers_opts="-Xms16000m,-Xmx92000m,-Xmn1600m"  --tracing=false --log_level=off --lang=python /home/bsc19/bsc19685/apps/DBSCAN/./DBSCAN.py 0.1 10 3
+[  INFO] Using default execution type: compss
+
+----------------- Executing DBSCAN.py --------------------------
+
+[(508)    API]  -  Starting COMPSs Runtime v2.2.rc1710 (build 20180123-1139.r3533)
+
+[ WARNING ]:	dill module is not installed.
+		Dill is a pickle extension which is capable to serialize a wider variety of objects.
+		PyCOMPSs can work withouth dill, but it is recommended to have it installed.
+		You can install it via pip typing pip install dill, or (probably) with your package manager.
+
+
+[ WARNING ]:	guppy module is not installed.
+		Guppy is a module needed for the local decorator.
+		The local decorator allows you to define non-task functions which are able to
+		handle synchronizations implictly.
+		PyCOMPSs can work withouth guppy, but it is recommended to have it installed.
+		You can install it via pip typing pip install guppy, or (probably) with your package manager.
+

@@ -1,0 +1,21 @@
+#Ignore all the .pyc files
+*.pyc
+
+#Ignore the normalized data files
+*n.txt
+
+#Ignore data files
+data/
+
+#Ignore random plot folder
+plot/
+
+#Ignore
+.~lock.*
+
+#Ignore useful papers
+papers/
+Pap_DBSCAN/
+
+#Ignore test files
+test.py
