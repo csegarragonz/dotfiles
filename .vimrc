@@ -21,8 +21,10 @@
     syntax enable                   " Syntax highlighting
     set background=dark        " Assume a dark background
     let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
+"   Depending on your distribution you might want to uncomment the following
+"   lines. You would need to do so if colorscheme is not working right.
+"    let g:solarized_termtrans=1
+"    let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
     colorscheme solarized
     let g:airline_theme='solarized'
