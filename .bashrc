@@ -16,7 +16,11 @@ alias ls="ls --color=auto"
 alias diskspace="du -S | sort -n -r | more"
 alias goDBSCAN="cd ~/DBSCAN/"
 
-export JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk/
+# export JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk/
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export COMPSS_HOME=/opt/COMPSs
+export MPI_HOME=/usr/lib/openmpi
+export LD_LIBRARY_PATH=/usr/lib/openmpi/lib
 export PATH=/opt/maven/bin:$PATH
 
 #Deploy COMPSs at SC:
@@ -27,7 +31,7 @@ alias deployNordcustom="pushd ~/svn/compss/framework/trunk/builders/scs/nord/;./
 
 #MN
 alias deployMN="pushd ~/svn/compss/framework/trunk/builders/scs/mn/;./buildMN bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN4/COMPSs/Trunk/;popd"
-alias deployMNcustom="pushd ~/git/framework/builders/scs/mn/;./buildMN bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN4/COMPSs/TrunkCarlos/;popd"
+alias deployMNcustom="pushd ~/gitlab/framework/builders/scs/mn/;./buildMN bsc19685 /home/bsc19/bsc19685/tmpCOMPSs/ /gpfs/apps/MN4/COMPSs/TrunkCarlos/;popd"
 
 #Exctracting script
 extract () {
