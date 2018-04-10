@@ -155,5 +155,5 @@
     let localleader=','
 
     " Key remaps {
-        nmap <F1> :NERDTreeToggle<CR>
+        map <C-n> :NERDTreeToggle<CR>
     " }
