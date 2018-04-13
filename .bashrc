@@ -5,6 +5,7 @@ export PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h:\[$(tput sg
 test -s ~/.alias && . ~/.alias || true
 
 #Alias
+alias loginCarlos='ssh carlos@163.172.155.43'
 alias loginNord="ssh -X bsc19685@nord3.bsc.es"
 alias loginSSF="ssh -X csegarra@ssflogin.bsc.es"
 alias matacompss="~/utils/matacompss"
