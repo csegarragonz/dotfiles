@@ -19,6 +19,8 @@
     set t_Co=256    " Important to let vi know I want 256 colors
     syntax enable                   " Syntax highlighting
     let g:solarized_termcolors=256
+"   Depending on your distribution you might want to uncomment the following
+"   lines. You would need to do so if colorscheme is not working right.
 "    let g:solarized_termtrans=1
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
@@ -161,5 +163,5 @@
     let localleader=','
 
     " Key remaps {
-        nmap <F1> :NERDTreeToggle<CR>
+        map <C-n> :NERDTreeToggle<CR>
     " }
