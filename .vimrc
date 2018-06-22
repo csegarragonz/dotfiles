@@ -6,7 +6,6 @@
 "   Carlos Segarra - Barcelona 25th January 2018
 "
 " }
-
     execute pathogen#infect()
 
     set nocompatible        " Must be first line
@@ -19,14 +18,14 @@
     " Color related issues
     set t_Co=256    " Important to let vi know I want 256 colors
     syntax enable                   " Syntax highlighting
-    set background=dark        " Assume a dark background
     let g:solarized_termcolors=256
 "   Depending on your distribution you might want to uncomment the following
 "   lines. You would need to do so if colorscheme is not working right.
 "    let g:solarized_termtrans=1
-"    let g:solarized_contrast="normal"
+    let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
     colorscheme solarized
+    set background=dark        " Assume a dark background
     let g:airline_theme='solarized'
     filetype plugin indent on   " Automatically detect file types.
     set mouse=a                 " Automatically enable mouse usage
@@ -43,6 +42,9 @@
     let g:python_highlight_indent_errors = 1
     let g:python_highlight_space_errors = 1
     let g:python_highlight_class_vars = 1
+
+    " Stuff for C-Lang
+    let g:ycm_global_ycm_extra_conf = ''
 
     " Dealing with undo files
     set undodir=~/.vim/undo
@@ -149,6 +151,12 @@
     let g:Tex_CompileRule_pdf='pdflatex -interacion=nonstopmode $*'
     let g:Tex_ViewRule_pdf='evince'
     let g:Tex_FoldedSections='section'
+
+    " C++ configuration
+    augroup project
+        autocmd!
+        autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+    augroup END
 
     " Setting leader keys
     let mapleader=','
