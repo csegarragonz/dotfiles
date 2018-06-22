@@ -5,11 +5,14 @@ export PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h:\[$(tput sg
 test -s ~/.alias && . ~/.alias || true
 
 #Alias
+# Server Logins
 alias loginCarlos='ssh carlos@163.172.155.43'
 alias loginNord="ssh -X bsc19685@nord3.bsc.es"
 alias loginSSF="ssh -X csegarra@ssflogin.bsc.es"
+# Useful Scripts
 alias matacompss="~/utils/matacompss"
-alias wxparaver="~/Downloads/wxparaver-4.7.1-Linux_x86_64/bin/wxparaver"
+alias syncGitlab="~/utils/sync_command.sh"
+alias wxparaver="~/sof/wxparaver-4.7.2-Linux_x86_64/bin/wxparaver"
 alias loginMN="ssh -X bsc19685@mn3.bsc.es"
 alias ..="cd .."
 alias ll="ls --color=auto -lah"
@@ -23,6 +26,8 @@ export COMPSS_HOME=/opt/COMPSs
 export MPI_HOME=/usr/lib/openmpi
 export LD_LIBRARY_PATH=/usr/lib/openmpi/lib
 export PATH=/opt/maven/bin:$PATH
+export HDF5_CXX=/usr/bin/mpicxx
+export myMN=bsc19685@mn1.bsc.es
 
 #Deploy COMPSs at SC:
 
