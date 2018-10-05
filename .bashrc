@@ -88,10 +88,12 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls --color=auto -alF'
+alias ll='ls --color=auto -lah'
 alias ..="cd .."
 alias la='ls -A'
 alias l='ls -CF'
+alias ls="ls --color=auto"
+alias diskspace="du -S | sort -n -r | more"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -127,4 +129,27 @@ export PATH=$HOME/gems/bin:$PATH
 # Spark stuff
 export PATH=$PATH:/usr/local/spark/bin
 
+export EDITOR=/usr/bin/vim
 
+alias goDBSCAN="cd ~/DBSCAN/"
+
+extract () {
+    if [ -f $1  ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1    ;;
+            *.tar.gz)    tar xvzf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar xvjf $1    ;;
+            *.tgz)       tar xvzf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
