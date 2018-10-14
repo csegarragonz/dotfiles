@@ -18,15 +18,16 @@
     " Color related issues
     set t_Co=256    " Important to let vi know I want 256 colors
     syntax enable                   " Syntax highlighting
-    let g:solarized_termcolors=256
+"    let g:solarized_termcolors=256
 "   Depending on your distribution you might want to uncomment the following
 "   lines. You would need to do so if colorscheme is not working right.
 "    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    colorscheme solarized
+"    let g:solarized_contrast="normal"
+"    let g:solarized_visibility="normal"
+"    colorscheme solarized
+    colorscheme molokai
     set background=dark        " Assume a dark background
-    let g:airline_theme='solarized'
+    let g:airline_theme='dark'
     filetype plugin indent on   " Automatically detect file types.
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing

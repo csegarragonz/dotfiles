@@ -129,6 +129,7 @@ export PATH=$HOME/gems/bin:$PATH
 
 # Spark stuff
 export PATH=$PATH:/usr/local/spark/bin
+export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 
 export EDITOR=/usr/bin/vim
 
