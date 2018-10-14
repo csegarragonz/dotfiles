@@ -94,6 +94,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ls="ls --color=auto"
 alias diskspace="du -S | sort -n -r | more"
+alias go="cd ~/Work/CSEM/TFG/"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -128,6 +129,7 @@ export PATH=$HOME/gems/bin:$PATH
 
 # Spark stuff
 export PATH=$PATH:/usr/local/spark/bin
+export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 
 export EDITOR=/usr/bin/vim
 
