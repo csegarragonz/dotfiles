@@ -25,6 +25,14 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
+" CtrlP Settings
+let g:ctrlp_root_markers = ['build.sbt', '.latexmain']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|log|toc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " Colors
 set termguicolors
 set background=dark
