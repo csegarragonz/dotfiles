@@ -1,3 +1,4 @@
+set guicursor=
 set nu
 syntax enable
 set mouse=a
