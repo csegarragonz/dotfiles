@@ -97,6 +97,7 @@ alias diskspace="du -S | sort -n -r | more"
 alias go="cd ~/Work/CSEM/TFG/"
 # Goodbye my lover
 alias vim="nvim"
+alias vi="nvim"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
