@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'kien/ctrlp.vim'
     Plug 'ludovicchabant/vim-gutentags'
+    Plug 'matze/vim-tex-fold'
+    Plug 'derekwyatt/vim-scala'
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -36,5 +38,5 @@ let g:airline_theme = 'material'
 :command Wq wq
 :command W w
 :command Q q
-nmap <C-c> :! ~/useful_scripts/compile_tex.sh '%:t'<CR><CR>
-nmap <C-w> :CtrlPCurWD<CR>
+nmap <C-c> :! ~/useful_scripts/compile_tex.sh '%:t'<CR>
+nmap <C-d> :CtrlPCurWD<CR>
