@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'matze/vim-tex-fold'
     Plug 'derekwyatt/vim-scala'
+    Plug 'scrooloose/nerdtree'
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -40,3 +41,4 @@ let g:airline_theme = 'material'
 :command Q q
 nmap <C-c> :! ~/useful_scripts/compile_tex.sh '%:t'<CR>
 nmap <C-d> :CtrlPCurWD<CR>
+map <C-n> :NERDTreeToggle<CR>
