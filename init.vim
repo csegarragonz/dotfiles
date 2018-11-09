@@ -34,7 +34,13 @@ colorscheme material
 let g:material_theme_style = 'dark'
 let g:airline_theme = 'material'
 
-"Remaps
+" Random
+let NERDTreeQuitOnOpen=1
+
+" Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Remaps
 :command WQ wq
 :command Wq wq
 :command W w

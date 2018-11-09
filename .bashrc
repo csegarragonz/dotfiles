@@ -74,7 +74,7 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #test -r /usr/bin/dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -94,7 +94,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ls="ls --color=auto"
 alias diskspace="du -S | sort -n -r | more"
-alias go="cd ~/Work/CSEM/TFG/"
+alias go="cd ~/Work/CSEM/SGX-Spark-CSEM/"
+alias code="cd ~/Work/CSEM/SGX-Spark-CSEM/csem/src/main/scala/org/apache/spark/csem/"
+alias test="cd ~/Work/CSEM/SGX-Spark-CSEM/csem/src/test/scala/org/apache/spark/csem/"
 # Goodbye my lover
 alias vim="nvim"
 alias vi="nvim"
@@ -110,6 +112,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
 fi
 
 # If an external mouse is connected, disable the touchpad. Just in case there is no keyboard.
@@ -133,11 +139,10 @@ export PATH=$HOME/gems/bin:$PATH
 # Spark stuff
 export PATH=$PATH:/usr/local/spark/bin
 export PATH=$PATH:/usr/local/kafka/bin
+export PATH=$PATH:/usr/local/mvn/bin
 export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 
 export EDITOR=/usr/bin/vim
-
-alias goDBSCAN="cd ~/DBSCAN/"
 
 extract () {
     if [ -f $1  ] ; then
