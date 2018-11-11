@@ -5,8 +5,11 @@
 ZSH="/home/csegarra/config_files/zsh/"
 
 
-# Set and load the chosen theme
+# Set and load the chosen theme: agnoster, gallois, mh, mrtazz
 ZSH_THEME="agnoster"
+ZSH_THEME="gallois"
+ZSH_THEME="mh"
+#ZSH_THEME="mrtazz"
 source "$ZSH/themes/$ZSH_THEME.zsh-theme"
 
 # Load the Z command
