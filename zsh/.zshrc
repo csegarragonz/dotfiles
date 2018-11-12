@@ -15,6 +15,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $myZSH/z.sh
 
+# Aliases
+alias ll="ls -la"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
