@@ -29,10 +29,10 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 
 " CtrlP Settings
-let g:ctrlp_root_markers = ['build.sbt', '.latexmain']
+let g:ctrlp_root_markers = ['build.sbt', '*.latexmain', 'pom.xml']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|log|toc)$',
+  \ 'file': '\v\.(exe|so|dll|log|toc|class)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
@@ -45,6 +45,12 @@ let g:airline_theme = 'material'
 
 " Random
 let NERDTreeQuitOnOpen=1
+
+" Easier split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
