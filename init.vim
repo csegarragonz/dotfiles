@@ -32,7 +32,7 @@ let g:deoplete#enable_at_startup = 1
 let g:ctrlp_root_markers = ['build.sbt', '*.latexmain', 'pom.xml']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|log|toc|class)$',
+  \ 'file': '\v\.(exe|so|dll|log|toc|class|aux|blg|bbl|pdf|latexmain)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
