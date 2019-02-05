@@ -27,6 +27,8 @@ alias ll="ls -la"
 alias vi="nvim"
 alias vim="nvim"
 alias kill-docker-containers="docker ps -q -a | xargs docker rm"
+alias texSpell="hunspell -l -t -i utf-8"
+alias cdl="cd $(ls -lart | tail -2 | head -1 | awk '{print $9}')"
 
 # User configuration
 
