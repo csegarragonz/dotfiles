@@ -1,2 +1,2 @@
-nnoremap <buffer> <C-c> :! g++ -c *.cpp<CR>
-nnoremap <buffer> <C-r> :! ./a.out<CR>
+nnoremap <buffer> <C-c> :! g++ *.cpp -o %:r.out<CR>
+nnoremap <buffer> <C-r> :! ./%:r.out<CR>
