@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'derekwyatt/vim-scala'
     Plug 'scrooloose/nerdtree'
     Plug 'easymotion/vim-easymotion'
+    Plug 'tpope/vim-obsession'
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -44,8 +45,9 @@ colorscheme material
 let g:material_theme_style = 'dark'
 let g:airline_theme = 'material'
 
-" Random
+" NERDTree Config
 let NERDTreeQuitOnOpen=1
+map <C-n> :NERDTreeToggle<CR>
 
 " Easier split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -61,11 +63,11 @@ map <Leader> <Plug>(easymotion-prefix)
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-" Remaps
+" Useful commands if sloppy fingers
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
-nmap <C-c> :! ~/useful_scripts/compile_tex.sh '%:t'<CR>
-nmap <C-d> :CtrlPCurWD<CR>
-map <C-n> :NERDTreeToggle<CR>
+
+" Custom FileType Definition, for mappings see after/ftplugin/
+au BufRead,BufNewFile *.gp setfiletype gnuplot
