@@ -71,3 +71,26 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Custom FileType Definition, for mappings see after/ftplugin/
 au BufRead,BufNewFile *.gp setfiletype gnuplot
+
+" Asynchronous run command using TMUX. All credits go to:
+" https://gist.github.com/tracyone/65cffd685fc9b9308e50c1a1783d1fb0
+" Flags:
+"   0x1 hor split window
+"   0x2 vertical split window
+"   0x4 new window
+"   0x8 run command in background
+function! RunCommand(cmd, flag) abort
+    let l:action = 'split-window -p 38 '
+    "split
+    if and(a:flag, 0x1)
+        let l:action = 'split-window -p 38 '
+    elseif and(a:flag, 0x2)
+        let l:action = 'split-window -h -p 50 '
+    elseif and(a:flag, 0x4)
+        let l:action = 'new-window '
+    endif
+    if and(a:flag, 0x8)
+        let l:action .= ' -d '
+    endif
+    call system('tmux '.l:action.string(a:cmd))
+endfunction
