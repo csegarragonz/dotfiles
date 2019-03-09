@@ -83,9 +83,9 @@ function! RunCommand(cmd, flag) abort
     let l:action = 'split-window -p 38 '
     "split
     if and(a:flag, 0x1)
-        let l:action = 'split-window -p 38 '
+        let l:action = 'split-window -p 28 '
     elseif and(a:flag, 0x2)
-        let l:action = 'split-window -h -p 50 '
+        let l:action = 'split-window -h -p 28 '
     elseif and(a:flag, 0x4)
         let l:action = 'new-window '
     endif
