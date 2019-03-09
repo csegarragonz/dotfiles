@@ -1,0 +1,7 @@
+pane	config	0	:conf-files	1	:*	0	:/home/cse/config_files	1	nvim	:nvim .tmux.conf
+pane	config	1	:set-up-env	0	:	0	:/home/cse/useful_scripts	1	nvim	:nvim set_up_env.sh
+pane	config	2	:zsh	0	:-	0	:/home/cse/config_files/zsh	1	nvim	:nvim .zshrc
+window	config	0	1	:*	bb7d,144x34,0,0,0
+window	config	1	0	:	bb7e,144x34,0,0,1
+window	config	2	0	:-	bb7f,144x34,0,0,2
+state	config	
