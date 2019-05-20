@@ -71,7 +71,7 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Custom FileType Definition, for mappings see after/ftplugin/
 au BufRead,BufNewFile *.gp setfiletype gnuplot
-nnoremap <C-s> :syntax sync fromstart
+nnoremap <C-s> :syntax sync fromstart<CR>
 
 " Asynchronous run command using TMUX. All credits go to:
 " https://gist.github.com/tracyone/65cffd685fc9b9308e50c1a1783d1fb0
