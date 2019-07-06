@@ -20,13 +20,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'kaicataldo/material.vim'
     Plug 'vim-airline/vim-airline'
-    Plug 'kien/ctrlp.vim'
-    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'kien/ctrlp.vim' " You gotta love CtrlP
     Plug 'matze/vim-tex-fold'
     Plug 'derekwyatt/vim-scala'
-    Plug 'scrooloose/nerdtree'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'tpope/vim-obsession'
+    Plug 'scrooloose/nerdtree' " Quick file explorer
+    Plug 'easymotion/vim-easymotion' " Easymotion for enhanced f functionality
+    Plug 'tpope/vim-obsession' " Vim Sessions to Support TMUX Resurrect
+    Plug 'posva/vim-vue' " Vue Syntax Higlighting
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -72,6 +72,7 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Custom FileType Definition, for mappings see after/ftplugin/
 au BufRead,BufNewFile *.gp setfiletype gnuplot
 au BufRead,BufNewFile *.tex setfiletype tex
+nnoremap <C-s> :syntax sync fromstart<CR>
 
 " Asynchronous run command using TMUX. All credits go to:
 " https://gist.github.com/tracyone/65cffd685fc9b9308e50c1a1783d1fb0

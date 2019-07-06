@@ -4,6 +4,7 @@ export PATH=$PATH:/usr/local/spark/bin
 export PATH=$PATH:/usr/local/kafka/bin
 export PATH=$PATH:/usr/local/mvn/bin
 export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
+export PATH=$PATH:~/bin
 export EDITOR=/usr/bin/nvim
 
 # Path to your oh-my-zsh installation.
