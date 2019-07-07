@@ -14,4 +14,4 @@
   [[default]]
     background_image = None
     use_system_font = False
-    font = Monospace 14
+    font = Monospace 16
