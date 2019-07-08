@@ -1,0 +1,17 @@
+[global_config]
+[keybindings]
+  hide_window = F12
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    use_system_font = False
+    font = Monospace 16

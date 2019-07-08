@@ -1,3 +1,4 @@
 tags
 zsh/oh-my-zsh/
-.tmux/resurrect/*
+.tmux/resurrect
+.tmux/plugins
