@@ -27,6 +27,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'easymotion/vim-easymotion' " Easymotion for enhanced f functionality
     Plug 'tpope/vim-obsession' " Vim Sessions to Support TMUX Resurrect
     Plug 'posva/vim-vue' " Vue Syntax Higlighting
+    Plug 'leafgarland/typescript-vim' " TS Syntax Highlighting
+    Plug 'pangloss/vim-javascript' " JS Indentation
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -94,4 +96,8 @@ function! RunCommand(cmd, flag) abort
         let l:action .= ' -d '
     endif
     call system('tmux '.l:action.string(a:cmd))
+endfunction
+
+function FindDep(text)
+    call system('ls')
 endfunction

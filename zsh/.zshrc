@@ -11,6 +11,10 @@ export EDITOR=/usr/bin/nvim
 export ZSH="/$HOME/config_files/zsh/oh-my-zsh"
 myZSH="/$HOME/config_files/zsh"
 
+# Jekyll Config
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
 ZSH_THEME="mh"
 
 plugins=(
@@ -29,6 +33,7 @@ source $myZSH/z.sh
 alias ll="ls -la"
 alias vi="nvim"
 alias vim="nvim"
+alias mqt-tz="/home/cse/Work/CSEM/ARM-TZ/mqtt-tz/code/mosquitto/src/mosquitto"
 alias kill-docker-containers="docker ps -q -a | xargs docker rm"
 alias texSpell="hunspell -l -t -i utf-8"
 alias cdl="cd $(ls -lart | tail -2 | head -1 | awk '{print $9}')"
