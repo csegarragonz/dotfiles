@@ -32,13 +32,15 @@ alias cdl="cd $(ls -lart | tail -2 | head -1 | awk '{print $9}')"
 alias ls="ls --color=auto -la"
 alias ll="ls -la"
 alias texSpell="hunspell -l -t -i utf-8"
+alias ..="cd .."
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 # Prompt Colors
 autoload -U colors && colors
 source $ZSH_HOME/plugins/zsh-git-prompt/zshrc.sh
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b"
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%B%30<...<%~%{$fg[red]%}]%{$reset_color%}$%b "
 # prompt
 #PROMPT='[%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[yellow]%}%B%30<...<%~%<<%{$reset_color%}]%b%(!.#.$) '
 RPROMPT='$(git_super_status)'
