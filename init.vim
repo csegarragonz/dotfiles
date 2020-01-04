@@ -27,6 +27,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree' " Quick file explorer
     Plug 'easymotion/vim-easymotion' " Easymotion for enhanced f functionality
     Plug 'tpope/vim-obsession' " Vim Sessions to Support TMUX Resurrect
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-surround'
     Plug 'posva/vim-vue' " Vue Syntax Higlighting
     Plug 'leafgarland/typescript-vim' " TS Syntax Highlighting
     Plug 'pangloss/vim-javascript' " JS Indentation
