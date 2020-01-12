@@ -10,6 +10,7 @@ set relativenumber
 set expandtab
 set tabstop=4
 set softtabstop=4
+set scrolloff=5
 set tags=tags;/
 set splitright
 set splitbelow

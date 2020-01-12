@@ -35,13 +35,18 @@ alias ll="ls -la"
 alias texSpell="hunspell -l -t -i utf-8"
 alias ..="cd .."
 
+# List Directory at every CD
+# chpwd() ls
+
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 # Prompt Colors
 autoload -U colors && colors
 source $ZSH_HOME/plugins/zsh-git-prompt/zshrc.sh
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%B%30<...<%~%{$fg[red]%}]%{$reset_color%}$%b "
+# Long Version
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%B%30<...<%~%{$fg[red]%}]%{$reset_color%}$%b "
+# Short Version
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%B%30<...<%~%{$fg[red]%}]%{$reset_color%}$%b "
 # prompt
 #PROMPT='[%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[yellow]%}%B%30<...<%~%<<%{$reset_color%}]%b%(!.#.$) '
 RPROMPT='$(git_super_status)'
@@ -112,6 +117,13 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+function up_widget() {
+		BUFFER="cd .."
+		zle accept-line
+	}
+zle -N up_widget
+bindkey "^k" up_widget
 
 # Source Plugins
 # source $ZSH/oh-my-zsh.sh
