@@ -1,0 +1,2 @@
+remaps &
+sxhkd -m 1 &		# Bind keys with sxhkd
