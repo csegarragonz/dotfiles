@@ -15,7 +15,7 @@ export EDITOR=/usr/bin/nvim
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 export PATH="$PATH:${GUROBI_HOME}/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 export GUROBI_HOME="/opt/gurobi900/linux64"
 export GRB_LICENSE_FILE="/home/csegarra/Work/MAMME/DAG/gurobi.lic"
 # LS colors, made with https://geoff.greer.fm/lscolors/

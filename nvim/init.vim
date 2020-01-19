@@ -5,6 +5,7 @@ set mouse=a
 set mousehide
 set wrap
 set autoindent
+set cursorline
 set shiftwidth=4
 set relativenumber
 set expandtab
