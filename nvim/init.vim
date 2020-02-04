@@ -62,6 +62,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Copy to system clipboard
+vnoremap <C-c> "+y
+
 " Easymotion configuration
 let mapleader = ","
 let g:EasyMotion_leader_key = '<Leader>' 
