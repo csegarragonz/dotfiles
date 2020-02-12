@@ -6,6 +6,8 @@
 
 # TODO:
 # Keybindings
+# Remove useful-scripts dir
+# Ask Y/N for each config
 
 ## Vars
 DOT_DIR=$(pwd)
