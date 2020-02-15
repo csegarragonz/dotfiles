@@ -16,11 +16,11 @@
   [[default]]
     cursor_color = "#aaaaaa"
     custom_command = tmux
-    font = Monospace 14
+    font = Monospace 12
     use_system_font = False
   [[CSG]]
     background_color = "#fdf6e3"
     cursor_color = "#aaaaaa"
-    font = Monospace 14
+    font = Monospace 12
     foreground_color = "#657b83"
     use_system_font = False
