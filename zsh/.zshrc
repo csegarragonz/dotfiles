@@ -34,6 +34,7 @@ alias ls="ls --color=auto"
 alias ll="ls -la"
 alias texSpell="hunspell -l -t -i utf-8"
 alias ..="cd .."
+alias pwdc="pwd | tr -d '\n' | xsel --clipboard"
 
 # List Directory at every CD
 function chpwd() {
