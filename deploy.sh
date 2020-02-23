@@ -15,6 +15,7 @@ DOT_DIR=$(pwd)
 ## XResources
 ln -sf $DOT_DIR/.Xresources ~/.Xresources
 ln -s $DOT_DIR/.xprofile ~/.xprofile
+ln -s $DOT_DIR/.profile ~/.profile
 ln -s $DOT_DIR/.xinitrc ~/.xinitrc
 
 ## i3

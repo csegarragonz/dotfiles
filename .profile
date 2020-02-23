@@ -21,6 +21,7 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Some basic exports
 export FILE="ranger"
+export TERM="st"
 export TERMINAL="st"
 export EDITOR=/usr/bin/nvim
 export BROWSER="chromium-browser"

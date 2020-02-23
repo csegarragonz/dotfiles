@@ -10,20 +10,30 @@
 #   - Luke Smith: https://github.com/LukeSmithxyz
 # -------------------------------------------------------------------------- #
 
-# If you come from bash you might have to change your $PATH.
-
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 15
 set $term --no-startup-id $TERMINAL
-# Set modkey to CAPS_LOCK
+# Set modkey to Windows Key
 set $mod Mod4 
 set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
+
+# #--Set Monitors--# #
+set $monitor_one eDP-1
+set $monitor_two DP-1
+set $monitor_three DP-2
+
+# #---Status Bar---# #
+bar {
+	font pango:mono 10
+	status_command i3blocks
+	position top
+	mode dock
+	modifier None
+}
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -37,25 +47,13 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
-#bar {
-#	font pango:mono 10
-#	status_command i3blocks
-#	position top
-#	mode dock
-#	modifier None
-#}
-
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
-
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
-
 bindsym $mod+Escape		workspace prev
-# bindsym $mod+Shift+BackSpace	exec --no-startup-id prompt "Reboot computer?" "$reboot"
-
-bindsym $mod+grave		exec --no-startup-id dmenuunicode
+bindsym $mod+Shift+r    reload
 
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id amixer sset Master mute ; exec --no-startup-id mpc pause && pkill -RTMIN+10 i3blocks ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
@@ -66,65 +64,32 @@ bindsym $mod+Insert		exec --no-startup-id showclip
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
-
-bindsym $mod+Super_L+c		exec --no-startup-id $BROWSER
-
-#bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-#bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
-
+bindsym $mod+Shift+c		exec --no-startup-id $BROWSER
+bindsym $mod+Shift+m		exec --no-startup-id thunderbird
+bindsym $mod+Shift+s		exec --no-startup-id spotify
 bindsym $mod+t			split toggle
-
-bindsym $mod+y			exec $term -e calcurse -D ~/.config/calcurse
-bindsym $mod+Shift+y		exec --no-startup-id i3resize left
-
-bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
-bindsym $mod+Shift+u		exec --no-startup-id i3resize down
-
 bindsym $mod+i 			exec $term -e htop
-bindsym $mod+Shift+i		exec --no-startup-id i3resize up
-
 bindsym $mod+o			sticky toggle
-bindsym $mod+Shift+o		exec --no-startup-id i3resize right
-
 bindsym $mod+p			exec --no-startup-id mpc toggle
 bindsym $mod+Shift+p		exec --no-startup-id mpc pause
-
 bindsym $mod+d			exec --no-startup-id dmenu_run
 
 # #--Workspace Navigation--# #
 bindsym $mod+f			fullscreen toggle
-
-bindsym $mod+g			workspace prev
-bindsym $mod+Shift+g		exec --no-startup-id gimp; workspace $ws5
-
+bindsym $mod+n			workspace prev
+bindsym $mod+m			workspace next
 bindsym $mod+h			focus left
-bindsym $mod+Shift+h		move left 30
-bindsym $mod+Super_L+h		move workspace to output left
-
+bindsym $mod+Shift+h		move workspace to output left
 bindsym $mod+j			focus down
-bindsym $mod+Shift+j		move down 30
-bindsym $mod+Super_L+j		move workspace to output down
-
+bindsym $mod+Shift+j		move workspace to output down
 bindsym $mod+k			focus up
-bindsym $mod+Shift+k		move up 30
-bindsym $mod+Super_L+k		move workspace to output up
-
+bindsym $mod+Shift+k		move workspace to output up
 bindsym $mod+l			focus right
-bindsym $mod+Shift+l		move right 30
-bindsym $mod+Super_L+l		move workspace to output right
-
-bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021 ; exec --no-startup-id xset dpms force off
+bindsym $mod+Shift+l		move workspace to output right
+bindsym $mod+x			exec --no-startup-id mpc pause
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
-
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
-
-bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
-bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
-
-bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
-bindsym $mod+Shift+m		exec --no-startup-id amixer sset Master toggle && pkill -RTMIN+10 i3blocks
 
 # #---Workspace Bindings---# #
 bindsym $mod+Home		workspace $ws1
@@ -136,8 +101,6 @@ bindsym $mod+Shift+Prior	move container to workspace prev
 bindsym $mod+Next		workspace next
 bindsym $mod+Shift+Next		move container to workspace next
 bindsym $mod+Tab		workspace back_and_forth
-bindsym $mod+XF86Back		workspace prev
-bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
 bindsym $mod+semicolon		workspace next
@@ -146,16 +109,31 @@ bindsym $mod+slash		split vertical ;; exec $term
 bindsym $mod+Shift+slash	kill
 bindsym $mod+backslash		workspace back_and_forth
 
+# #--Workspace and Monitor Configuration--# #
 set $ws1 "1"
+workspace $ws1 output eDP1
 set $ws2 "2"
+workspace $ws2 output eDP1
 set $ws3 "3"
+workspace $ws3 output eDP1
 set $ws4 "4"
+workspace $ws4 output eDP1
 set $ws5 "5"
+workspace $ws5 output DP-1
 set $ws6 "6"
+workspace $ws6 output DP-1
 set $ws7 "7"
+workspace $ws7 output DP-1
 set $ws8 "8"
+workspace $ws8 output DP-1
 set $ws9 "9"
+workspace $ws9 output DP-2 
 set $ws10 "10"
+workspace $ws10 output DP-2
+set $ws11 "11"
+workspace $ws11 output DP-2
+set $ws12 "12"
+workspace $ws12 output DP-2
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
@@ -184,10 +162,11 @@ bindsym $mod+Shift+0	move container to workspace $ws10
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
 for_window [title="GIMP Startup"] move workspace $ws5
-for_window [class="Gimp"] move workspace $ws5
+for_window [class="Thunderbird"] move workspace $ws8
+for_window [class="Spotify"] move workspace $ws4
+for_window [class="Evince"] move workspace $ws9
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
-for_window [title="Default - Wine desktop"] floating enable
 
 # #---Function Buttons---# #
 #bindsym $mod+F1		exec --no-startup-id groff -mom ~/.local/share/larbs/readme.mom -Tpdf | zathura -

@@ -5,16 +5,12 @@
 # -------------------------------------------------------------------------- #
 
 # If you come from bash you might have to change your $PATH.
+export TERM="st"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/usr/local/spark/bin
-export PATH=$PATH:/usr/local/kafka/bin
-export PATH=$PATH:/usr/local/mvn/bin
 export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 export PATH=$PATH:~/bin
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
-#export PATH="$PATH:${GUROBI_HOME}/bin"
-#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 export GUROBI_HOME="/opt/gurobi900/linux64"
 export GRB_LICENSE_FILE="/home/csegarra/Work/MAMME/DAG/gurobi.lic"
 # LS colors, made with https://geoff.greer.fm/lscolors/
@@ -41,7 +37,7 @@ function chpwd() {
     ls -la
 }
 
-[ -z "$TMUX" ] && export TERM=xterm-256color
+#[ -z "$TMUX" ] && export TERM=xterm-256color
 
 # Prompt Colors
 autoload -U colors && colors

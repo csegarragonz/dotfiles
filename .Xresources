@@ -46,7 +46,7 @@
 ! Glacier
 *.foreground:  #ffffff
 *.background:  #0c1115
-*.cursorColor: #6c6c6c
+*.cursorColor: #ffffff
 !
 ! Black
 *.color0:      #2e343c
