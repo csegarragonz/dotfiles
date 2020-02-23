@@ -15,6 +15,11 @@ DOT_DIR=$(pwd)
 ## XResources
 ln -sf $DOT_DIR/.Xresources ~/.Xresources
 ln -s $DOT_DIR/.xprofile ~/.xprofile
+ln -s $DOT_DIR/.xinitrc ~/.xinitrc
+
+## i3
+mkdir -p ~/.i3
+ln -sf $DOT_DIR/i3/config ~/.i3/config
 
 ## ZSH configuration
 echo " -------------- zsh Configuration -------------- "

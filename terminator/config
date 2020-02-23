@@ -6,7 +6,7 @@
   [[default]]
     [[[child1]]]
       parent = window0
-      profile = Harper
+      profile = Glacier
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -24,6 +24,11 @@
     font = Monospace 12
     foreground_color = "#657b83"
     use_system_font = False
+  [[Glacier]]
+    background_color = "#0c1115"
+    cursor_color = "#6c6c6c"
+    foreground_color = "#ffffff"
+    palette = "#2e343c:#bd0f2f:#35a770:#fb9435:#1f5872:#bd2523:#778397:#ffffff:#404a55:#bd0f2f:#49e998:#fddf6e:#2a8bc1:#ea4727:#a0b6d3:#ffffff"
   [[Harper]]
     background_color = "#010101"
     cursor_color = "#a8a49d"

@@ -11,7 +11,6 @@ export PATH=$PATH:/usr/local/kafka/bin
 export PATH=$PATH:/usr/local/mvn/bin
 export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
 export PATH=$PATH:~/bin
-export EDITOR=/usr/bin/nvim
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 #export PATH="$PATH:${GUROBI_HOME}/bin"

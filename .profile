@@ -19,6 +19,13 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# Some basic exports
+export FILE="ranger"
+export TERMINAL="st"
+export EDITOR=/usr/bin/nvim
+export BROWSER="chromium-browser"
+export WM="i3"
+
 # rotate the monitor accordingly
 xrandr --output DP-2 --rotate left
 
