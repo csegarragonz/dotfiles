@@ -48,7 +48,7 @@ let g:ctrlp_custom_ignore = {
 " Colors
 set termguicolors
 set background=dark
-colorscheme material
+" colorscheme material
 let g:material_theme_style = 'dark'
 let g:airline_theme = 'material'
 

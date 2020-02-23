@@ -12,6 +12,10 @@
 ## Vars
 DOT_DIR=$(pwd)
 
+## XResources
+ln -sf $DOT_DIR/.Xresources ~/.Xresources
+ln -s $DOT_DIR/.xprofile ~/.xprofile
+
 ## ZSH configuration
 echo " -------------- zsh Configuration -------------- "
 echo " - Checking if zsh is Installed ... "
