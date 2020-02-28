@@ -19,8 +19,12 @@ ln -s $DOT_DIR/.profile ~/.profile
 ln -s $DOT_DIR/.xinitrc ~/.xinitrc
 
 ## i3
-mkdir -p ~/.i3
-ln -sf $DOT_DIR/i3/config ~/.i3/config
+#mkdir -p ~/.i3
+#ln -sf $DOT_DIR/i3/config ~/.i3/config
+
+## Ranger Install
+# TODO do installation
+ln -sf $DOT_DIR/ranger/rc.conf ~/.config/ranger/rc.conf
 
 ## ZSH configuration
 echo " -------------- zsh Configuration -------------- "
