@@ -126,7 +126,3 @@ function! RunCommand(cmd, flag) abort
     endif
     call system('tmux '.l:action.string(a:cmd))
 endfunction
-
-function FindDep(text)
-    call system('ls')
-endfunction
