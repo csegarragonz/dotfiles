@@ -23,6 +23,7 @@ ZSH_HOME="$HOME/dotfiles/zsh"
 # Aliases
 alias vi="nvim"
 alias vim="nvim"
+alias vimdiff="nvim -d"
 alias kill-docker-containers="docker ps -q -a | xargs docker rm"
 alias cdl="cd $(ls -lart | tail -2 | head -1 | awk '{print $9}')"
 alias ls="ls --color=auto"
