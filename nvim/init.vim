@@ -34,7 +34,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'posva/vim-vue' " Vue Syntax Higlighting
     Plug 'leafgarland/typescript-vim' " TS Syntax Highlighting
     Plug 'pangloss/vim-javascript' " JS Indentation
-    Plugin 'rhysd/vim-clang-format' " Clang format
+    Plug 'rhysd/vim-clang-format' " Clang format
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
