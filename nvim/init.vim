@@ -107,7 +107,7 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#enable_fallback_style = 1
 " Specify the clang-format command to avoid confusion
 let g:clang_format#command = '/usr/bin/clang-format-10'
-nnoremap <leader>f :<C-u>ClangFormat<CR>
+nnoremap <leader>c :<C-u>ClangFormat<CR>
 
 " Custom FileType Definition, for mappings see after/ftplugin/
 au BufRead,BufNewFile *.gp setfiletype gnuplot
