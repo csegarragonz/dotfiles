@@ -12,7 +12,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set scrolloff=5
-set colorcolumn=80
+" set colorcolumn=80
 set tags=tags;/
 set splitright
 set splitbelow
