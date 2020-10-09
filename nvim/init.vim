@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'leafgarland/typescript-vim' " TS Syntax Highlighting
     Plug 'pangloss/vim-javascript' " JS Indentation
     Plug 'rhysd/vim-clang-format' " Clang format
+    Plug 'psf/black' " Python code formatting
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
