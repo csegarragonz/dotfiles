@@ -31,6 +31,7 @@ alias texSpell="hunspell -l -t -i utf-8"
 alias ..="cd .."
 alias pwdc="pwd | tr -d '\n' | xsel --clipboard"
 alias faasm="cd /home/csegarra/Work/IMP/sless-wasm/faasm"
+alias exp="cd /home/csegarra/Work/IMP/sless-wasm/faasm-experiments"
 
 # List Directory at every CD
 function chpwd() {
