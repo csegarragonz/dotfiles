@@ -62,7 +62,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
- Basic auto/tab complete:
+# Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 # Zsh to use the same colors as ls
