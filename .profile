@@ -16,19 +16,15 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
-# Some basic exports
-export FILE="ranger"
-export TERM="st"
-export TERMINAL="st"
-export EDITOR=/usr/bin/nvim
-export BROWSER="chromium-browser"
-export WM="i3"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
-# rotate the monitor accordingly
-xrandr --output DP-2 --rotate left
-
-# set the keyboard
+# Map CAPS LOCK -> CTRL
 setxkbmap -layout us -option ctrl:nocaps
