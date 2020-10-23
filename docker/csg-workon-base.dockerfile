@@ -1,35 +1,24 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.0
 
 RUN apt-get update && apt-get upgrade -y
 
 # Package installation
 RUN apt-get install -y \
-        ctags \
         curl \
         git \
         python3-apt \
         python3-distutils \
         python3-pip \
-        sudo \
+        python3-venv \
         zsh
-
-# Create a non-root user, and add it to the sudoer group
-RUN adduser --disabled-password --gecos '' csegarra
-RUN adduser csegarra sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-USER csegarra
-WORKDIR /home/csegarra
 
 # Clone the dotfiles repo
 RUN git clone https://github.com/csegarragonz/dotfiles ~/dotfiles
 
-# Install neovim with Python3 support
-#RUN sudo apt-add-repository ppa:neovim-ppa/stable
-RUN sudo apt-get update
-RUN sudo apt-get install -y \
-        neovim \
-        python3-neovim
+# Install Neovim
+WORKDIR ~/dotfiles/nvim/
+RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+RUN chmod u+x nvim.appimage
 RUN pip3 install black
 
 # Install vim plug
@@ -44,4 +33,3 @@ RUN ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/
 RUN ln -s ~/dotfiles/zsh/.zshrc_container ~/.zshrc
 RUN nvim +PlugInstall +qa
 RUN nvim +PlugUpdate +qa
-ENTRYPOINT ["/bin/zsh"]
