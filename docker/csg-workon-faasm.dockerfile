@@ -15,10 +15,9 @@ RUN apt-get install -y \
         zsh
 
 # Copy relevant files from parent image
-WORKDIR ~
-COPY --from=0 /root/dotfiles .
-COPY --from=0 /root/.zshrc .
-COPY --from=0 /root/.config/nvim .
+COPY --from=0 /root/dotfiles /root/dotfiles
+COPY --from=0 /root/.zshrc /root/.zshrc
+COPY --from=0 /root/.config/nvim /root/.config/nvim
 
 RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
 RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.zshrc
