@@ -37,7 +37,7 @@ RUN mkdir -p ~/.config/nvim
 RUN ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 RUN ln -s ~/dotfiles/nvim/after ~/.config/nvim/
 RUN ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/
-RUN ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+RUN ln -s ~/dotfiles/zsh/.zshrc_container ~/.zshrc
 RUN nvim +PlugInstall +qa
 RUN nvim +PlugUpdate +qa
 ENTRYPOINT ["/bin/zsh"]
