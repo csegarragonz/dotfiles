@@ -7,8 +7,8 @@ RUN apt-get install -y \
         curl \
         git \
         neovim \
-        python-neovim \
         python3-neovim \
+        python3-pip \
         zsh
 
 # Clone the dotfiles repo

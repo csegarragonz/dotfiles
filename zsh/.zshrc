@@ -38,7 +38,7 @@ function chpwd() {
 
 # Prompt Colors
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%B$(basename $PWD)%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "
 ## prompt
 ##PROMPT='[%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[yellow]%}%B%30<...<%~%<<%{$reset_color%}]%b%(!.#.$) '
 #RPROMPT='$(git_super_status)'
