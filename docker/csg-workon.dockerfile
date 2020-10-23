@@ -7,6 +7,9 @@ RUN apt-get install -y \
         ctags \
         curl \
         git \
+        python3-apt \
+        python3-distutils \
+        python3-pip \
         sudo \
         zsh
 
@@ -27,6 +30,7 @@ RUN sudo apt-get update
 RUN sudo apt-get install -y \
         neovim \
         python3-neovim
+RUN pip3 install black
 
 # Install vim plug
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
