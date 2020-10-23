@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'pangloss/vim-javascript' " JS Indentation
     Plug 'rhysd/vim-clang-format' " Clang format
     Plug 'psf/black' " Python code formatting
+    Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax highlighting
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 

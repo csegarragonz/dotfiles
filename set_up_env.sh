@@ -58,20 +58,27 @@ chsh -s $(which zsh)
 ## Link .profile file
 ln -s ~/dotfiles/.profile ~/.profile
 
-## Neovim configuration
+## Global Gitignore
+git config --global core.excludesfile ~/dotfiles/git/.gitignore_global
 
+## Install Docker
+# TODO installation steps
+# Post-installation
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+## Neovim configuration
 # Install Neovim
 sudo apt-get install software-properties-common
 sudo apt-add-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install neovim
-
 # Installl Neovim with python support
 sudo apt-get install
 pip3 install user neovim
 pip3 install user neovim
-
-## Install vim-plug
+# Install vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

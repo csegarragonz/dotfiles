@@ -462,7 +462,7 @@ modifyLineBreaks:
         sentencesBeginWith:
             A-Z: 1
             a-z: 0
-            other: "\$|\%"
+            other: "\$|\%|\\\\"
         sentencesEndWith:
             basicFullStop: 0
             betterFullStop: 1
