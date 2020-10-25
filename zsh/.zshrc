@@ -27,6 +27,8 @@ alias ..="cd .."
 alias pwdc="pwd | tr -d '\n' | xsel --clipboard"
 alias faasm="cd /home/csegarra/faasm"
 alias exp="cd /home/csegarra/faasm-experiments"
+# TODO automatize
+alias workon-faasm="cd /home/csegarra/faasm/; ./bin/cli.sh csg-workon/faasm:0.1"
 
 # List Directory at every CD
 function chpwd() {
