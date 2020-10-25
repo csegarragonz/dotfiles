@@ -1,6 +1,6 @@
 [submodule ".tmux/plugins/tmux-resurrect"]
 	path = .tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule "third-party/neovim"]
-	path = third-party/neovim
-	url = git@github.com:neovim/neovim.git
+[submodule "third-party/st"]
+	path = third-party/st
+	url = https://github.com/csegarragonz/st.git
