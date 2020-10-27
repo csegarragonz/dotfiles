@@ -19,6 +19,12 @@ COPY --from=0 /root/dotfiles /root/dotfiles
 COPY --from=0 /root/.zshrc /root/.zshrc
 COPY --from=0 /root/.config/nvim /root/.config/nvim
 COPY --from=0 /root/.local/share/nvim /root/.local/share/nvim
+COPY --from=0 /root/.vim /root/.vim
+
+# Looks as though we need to reinstall some pythond dependencies
+# TODO why?
+RUN pip3 install wheel
+RUN pip3 install -r faasmcli/requirements.txt
 
 RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
 RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.zshrc
