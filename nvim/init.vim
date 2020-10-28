@@ -112,7 +112,12 @@ let g:clang_format#enable_fallback_style = 1
 let g:clang_format#command = '/usr/bin/clang-format-10'
 nnoremap <leader>c :<C-u>ClangFormat<CR>
 
+" 80 chs column
+set colorcolumn=80
+highlight ColorColumn guibg=gray
+
 " Custom FileType Definition, for mappings see after/ftplugin/
+" TODO this does not work
 au BufRead,BufNewFile *.gp setfiletype gnuplot
 au BufRead,BufNewFile *.tex setfiletype tex
 nnoremap <C-s> :syntax sync fromstart<CR>
