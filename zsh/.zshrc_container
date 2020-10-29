@@ -23,8 +23,6 @@ alias ls="ls --color=auto"
 alias ll="ls -la"
 alias ..="cd .."
 alias pwdc="pwd | tr -d '\n' | xsel --clipboard"
-alias faasm="cd /home/csegarra/faasm"
-alias exp="cd /home/csegarra/faasm-experiments"
 
 # List Directory at every CD
 function chpwd() {

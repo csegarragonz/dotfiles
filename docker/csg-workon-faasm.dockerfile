@@ -21,5 +21,7 @@ COPY --from=0 /root/.config/nvim /root/.config/nvim
 COPY --from=0 /root/.local/share/nvim /root/.local/share/nvim
 COPY --from=0 /root/.vim /root/.vim
 
+RUN echo 'alias faasm="cd /usr/local/code/faasm"' >> ~/.zshrc
+RUN echo 'alias exp="cd /usr/local/code/faasm-experiments"' >> ~/.zshrc
 RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
 RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.zshrc
