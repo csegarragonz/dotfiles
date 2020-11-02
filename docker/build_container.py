@@ -16,12 +16,18 @@ def build(target):
         "docker",
         "build",
         f"-t csg-workon/{target}:{version}",
-        f"-f docker/csg-workon-{target}.dockerfile",
+        f"-f csg-workon-{target}.dockerfile",
         ".",
     ]
     cmd = " ".join(cmd)
     print(cmd)
     run(cmd, shell=True, check=True)
+
+def build_all():
+    ALL_TARGETS = ["base", "faasm"]
+    print("Building all targets: {}".format(ALL_TARGETS))
+    for target in ALL_TARGETS:
+        build(target)
 
 if __name__ == "__main__":
     argc = len(sys.argv)
