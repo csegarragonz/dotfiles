@@ -17,16 +17,20 @@ export LS_COLORS='no=00:fi=00:di=01;32:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 ZSH_HOME="$HOME/dotfiles/zsh"
 
-# Aliases
+## Aliases
+# General
 alias vi="nvim"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias ls="ls --color=auto"
 alias ll="ls -la"
 alias ..="cd .."
+# Naviagtion
 alias pwdc="pwd | tr -d '\n' | xsel --clipboard"
 alias faasm="cd /home/csegarra/faasm"
 alias exp="cd /home/csegarra/faasm-experiments"
+# Git
+alias git-wip-all="git add -A && git commit -m 'wip' && git push origin master"
 # TODO automatize
 alias workon-faasm="cd /home/csegarra/faasm/; ./bin/cli.sh csg-workon/faasm:0.1"
 
