@@ -24,7 +24,7 @@ def build(target):
     run(cmd, shell=True, check=True)
 
 def build_all():
-    ALL_TARGETS = ["base", "faasm"]
+    ALL_TARGETS = ["base", "faasm", "web"]
     print("Building all targets: {}".format(ALL_TARGETS))
     for target in ALL_TARGETS:
         build(target)
@@ -32,7 +32,9 @@ def build_all():
 if __name__ == "__main__":
     argc = len(sys.argv)
     if argc == 1:
-        print("Must provide a valid target")
+        print("Usage:")
+        print("./build_container.py <target_name>")
+        print("Where target: all, base, faasm, web")
         exit(1)
     else:
         target = sys.argv[1]
