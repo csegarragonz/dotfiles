@@ -1,6 +1,6 @@
 FROM csg-workon/base:0.1
 
-FROM faasm/cli:0.5.0
+FROM faasm/faabric-cli:0.0.12
 
 RUN apt-get update && apt-get upgrade -y
 
@@ -24,4 +24,4 @@ COPY --from=0 /root/.vim /root/.vim
 RUN echo 'alias faasm="cd /usr/local/code/faasm"' >> ~/.zshrc
 RUN echo 'alias exp="cd /usr/local/code/faasm-experiments"' >> ~/.zshrc
 RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
-RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.zshrc
+RUN echo ". /code/faabric/bin/workon.sh" >> ~/.zshrc

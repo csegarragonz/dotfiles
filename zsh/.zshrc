@@ -28,11 +28,16 @@ alias ..="cd .."
 # Naviagtion
 alias pwdc="pwd | tr -d '\n' | xsel --clipboard"
 alias faasm="cd /home/csegarra/faasm"
+alias faabric="cd /home/csegarra/faabric"
 alias exp="cd /home/csegarra/faasm-experiments"
-# Git
+# Git tooling
 alias git-wip-all="git add -A && git commit -m 'wip' && git push origin master"
+function git-commit-all () {
+    git add -A && git commit -m "$1" && git push origin $2
+}
 # TODO automatize
 alias workon-faasm="cd /home/csegarra/faasm/; ./bin/cli.sh csg-workon/faasm:0.1"
+alias workon-faabric="cd /home/csegarra/faabric/; ./bin/cli.sh csg-workon/faabric:0.1"
 
 # List Directory at every CD
 function chpwd() {

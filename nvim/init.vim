@@ -103,15 +103,6 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 :command W w
 :command Q q
 
-" clang-format (@Shillaker)
-" Use local .clang-format files
-let g:clang_format#detect_style_file = 1
-" Do nothing unless .clang-format file found
-let g:clang_format#enable_fallback_style = 1
-" Specify the clang-format command to avoid confusion
-let g:clang_format#command = '/usr/bin/clang-format-10'
-nnoremap <leader>c :<C-u>ClangFormat<CR>
-
 " 80 chs column
 set colorcolumn=80
 highlight ColorColumn guibg=gray

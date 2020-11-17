@@ -10,11 +10,12 @@ def get_version():
         version = version.strip()
     return version
 
-def build(target):
+def build(target, no_cache=False):
     version = get_version()
     cmd = [
         "docker",
         "build",
+        "--no-cache",
         f"-t csg-workon/{target}:{version}",
         f"-f csg-workon-{target}.dockerfile",
         ".",
