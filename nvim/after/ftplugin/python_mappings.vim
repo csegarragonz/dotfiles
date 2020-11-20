@@ -1,1 +1,1 @@
-nnoremap <buffer> <C-c> :! python3 %<CR>
+nnoremap <leader>c :<C-u>Black<CR>
