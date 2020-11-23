@@ -1,6 +1,6 @@
 FROM csg-workon/base:0.1
 
-FROM faasm/cli:0.5.0
+FROM faasm/cli:0.5.3
 
 RUN apt-get update && apt-get upgrade -y
 
