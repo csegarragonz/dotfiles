@@ -1,6 +1,6 @@
 FROM csg-workon/base:0.1
 
-FROM faasm/faabric-cli:0.0.12
+FROM faasm/faabric-cli:0.0.13
 
 RUN apt-get update && apt-get upgrade -y
 

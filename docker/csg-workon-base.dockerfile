@@ -25,5 +25,6 @@ RUN ln -s ~/dotfiles/nvim/after ~/.config/nvim/
 RUN ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/
 RUN ln -s ~/dotfiles/zsh/.zshrc_container ~/.zshrc
 RUN pip3 install black
+RUN pip3 install pynvim
 RUN nvim +PlugInstall +qa
 RUN nvim +PlugUpdate +qa
