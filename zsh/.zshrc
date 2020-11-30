@@ -8,7 +8,7 @@
 export TERM="st"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/texlive/2018/bin/x86_64-linux
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/.local/bin:~bin
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 # LS colors, made with https://geoff.greer.fm/lscolors/

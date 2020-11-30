@@ -7,4 +7,4 @@ let g:clang_format#enable_fallback_style = 1
 let g:clang_format#command = '/usr/bin/clang-format-10'
 " ClangFormat _very_ slow
 " nnoremap <leader>c :<C-u>ClangFormat<CR>
-nnoremap <leader>c :! clang-format-10 -i %<CR>
+nnoremap <leader>c :! clang-format-10 -i --style=file %<CR>

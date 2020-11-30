@@ -113,6 +113,21 @@ au BufRead,BufNewFile *.gp setfiletype gnuplot
 au BufRead,BufNewFile *.tex setfiletype tex
 nnoremap <C-s> :syntax sync fromstart<CR>
 
+" CScope
+if has("cscope")
+    set csprg=/usr/local/bin/cscope
+    set csto=0
+    set cst
+    " add any database in current directory
+    if filereadable("cscope.out")
+        silent cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        silent cs add $CSCOPE_DB
+    endif
+endif
+
+
 " Asynchronous run command using TMUX. All credits go to:
 " https://gist.github.com/tracyone/65cffd685fc9b9308e50c1a1783d1fb0
 " Flags:
