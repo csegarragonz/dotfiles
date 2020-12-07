@@ -36,8 +36,8 @@ function git-commit-all () {
     git add -A && git commit -m "$1" && git push origin $2
 }
 # TODO automatize
-alias workon-faasm="cd /home/csegarra/faasm/; ./bin/cli.sh csg-workon/faasm:0.1"
-alias workon-faabric="cd /home/csegarra/faabric/; ./bin/cli.sh csg-workon/faabric:0.1"
+alias workon-faasm="cd /home/csegarra/faasm/; ./bin/cli.sh csg-workon/faasm:$(< VERSION)"
+alias workon-faabric="cd /home/csegarra/faabric/; ./bin/cli.sh csg-workon/faabric:$(< VERSION)"
 
 # List Directory at every CD
 function chpwd() {

@@ -4,6 +4,12 @@ import sys
 from os.path import join
 from subprocess import run
 
+def get_faasm_version():
+    with open("/home/csegarra/faasm/VERSION", "r") as fh:
+        version = fh.read()
+        version = version.strip()
+    return version
+
 def get_version():
     with open("VERSION", "r") as fh:
         version = fh.read()
@@ -11,13 +17,19 @@ def get_version():
     return version
 
 def build(target, no_cache=False):
-    version = get_version()
+    if target in ["faasm", "faabric"]:
+        version = get_faasm_version()
+        extra_arg = "--build-arg FAASM_VERSION={}".format(version)
+    else:
+        version = get_version()
+        extra_arg = ""
     cmd = [
         "docker",
         "build",
         "--no-cache",
         f"-t csg-workon/{target}:{version}",
         f"-f csg-workon-{target}.dockerfile",
+        f"{extra_arg}",
         ".",
     ]
     cmd = " ".join(cmd)

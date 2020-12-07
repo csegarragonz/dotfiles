@@ -1,6 +1,7 @@
+ARG FAASM_VERSION
 FROM csg-workon/base:0.1
 
-FROM faasm/cli:0.5.3
+FROM faasm/cli:${FAASM_VERSION}
 
 RUN apt-get update && apt-get upgrade -y
 
