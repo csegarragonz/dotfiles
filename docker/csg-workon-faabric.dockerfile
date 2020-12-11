@@ -1,6 +1,7 @@
+ARG FAABRIC_VERSION
 FROM csg-workon/base:0.1
 
-FROM faasm/faabric-cli:0.0.13
+FROM faasm/faabric:${FAABRIC_VERSION}
 
 RUN apt-get update && apt-get upgrade -y
 

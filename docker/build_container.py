@@ -10,6 +10,12 @@ def get_faasm_version():
         version = version.strip()
     return version
 
+def get_faabric_version():
+    with open("/home/csegarra/faabric/VERSION", "r") as fh:
+        version = fh.read()
+        version = version.strip()
+    return version
+
 def get_version():
     with open("VERSION", "r") as fh:
         version = fh.read()
@@ -17,9 +23,12 @@ def get_version():
     return version
 
 def build(target, no_cache=False):
-    if target in ["faasm", "faabric"]:
+    if target == "faasm":
         version = get_faasm_version()
         extra_arg = "--build-arg FAASM_VERSION={}".format(version)
+    elif target == "faabric":
+        version = get_faabric_version()
+        extra_arg = "--build-arg FAABRIC_VERSION={}".format(version)
     else:
         version = get_version()
         extra_arg = ""
