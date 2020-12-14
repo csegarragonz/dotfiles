@@ -129,7 +129,8 @@ newgrp docker
 ## Neovim configuration
 # Install Neovim
 nice_log "Installing neovim...."
-sudo apt-get install neovim python3 neovim
+sudo apt-get install neovim python3-neovim
+pip3 install --user pynvim
 # Install vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
