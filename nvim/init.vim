@@ -22,7 +22,6 @@ scriptencoding utf-8
 " Plugins (from vim-plug)
 call plug#begin('~/.vim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'kaicataldo/material.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'kien/ctrlp.vim' " You gotta love CtrlP
     Plug 'matze/vim-tex-fold'
@@ -53,8 +52,8 @@ let g:ctrlp_custom_ignore = {
 set termguicolors
 set background=dark
 " colorscheme material
-let g:material_theme_style = 'dark'
-let g:airline_theme = 'material'
+" let g:material_theme_style = 'dark'
+" let g:airline_theme = 'material'
 
 " NERDTree Config
 let NERDTreeQuitOnOpen=1

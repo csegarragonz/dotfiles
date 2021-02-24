@@ -4,9 +4,9 @@
 # Note that the list of names is completely arbitrary and might grow.
 # Will disable this for a bit since I would rather have a dynamic compilation
 # that looks for speciphic files.
-if [ -f make.sh ];
+if [ -f Makefile ];
 then
-    ./make.sh
+    make
 else
     # We then look for the main tex file if there are various tex files
     filename="${1%%.*}"
