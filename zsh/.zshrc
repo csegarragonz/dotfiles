@@ -37,7 +37,7 @@ function git-commit-all () {
 }
 # TODO automatize
 alias workon-faasm="cd /home/csegarra/faasm/; ./bin/cli.sh csg-workon/faasm:$(< ~/faasm/VERSION)"
-alias workon-faabric="cd /home/csegarra/faabric/; ./bin/cli.sh csg-workon/faabric:$(< ~/faabric/VERSION)"
+alias workon-faabric="cd /home/csegarra/faasm/faabric/; ./bin/cli.sh csg-workon/faabric:$(< ~/faasm/faabric/VERSION)"
 
 # List Directory at every CD
 function chpwd() {
