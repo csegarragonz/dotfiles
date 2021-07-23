@@ -126,6 +126,8 @@ if has("cscope")
     endif
 endif
 
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Asynchronous run command using TMUX. All credits go to:
 " https://gist.github.com/tracyone/65cffd685fc9b9308e50c1a1783d1fb0
