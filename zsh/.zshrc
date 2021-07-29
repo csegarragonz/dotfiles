@@ -123,3 +123,4 @@ setxkbmap -layout us -option ctrl:nocaps
 source $ZSH_HOME/z.sh
 source $ZSH_HOME/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
 #zprof
+# xdotool key Caps_Lock
