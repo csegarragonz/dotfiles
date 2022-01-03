@@ -1,5 +1,7 @@
 tags
+core
 
+# Latex related stuff
 *.latexmain
 main.aux
 main.bbl

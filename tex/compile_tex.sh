@@ -19,8 +19,5 @@ else
         filename="${i%%.*}"
     done
     filetexname="$filename.tex"
-    # Compile it with references if a .bib document exists
-    countbib=`ls -1 *.bib 2>/dev/null | wc -l`
-    countglo=`ls -1 *.glo 2>/dev/null | wc -l`
     latexmk -pdf $filetexname
 fi

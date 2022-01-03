@@ -8,4 +8,5 @@ cd neovim
 make
 sudo make install
 pip3 install --upgrade --force-reinstall neovim
+pip3 install pynvim
 ```
