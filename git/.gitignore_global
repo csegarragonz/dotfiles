@@ -7,3 +7,7 @@ main.blg
 main.log
 main.out
 main.pdf
+main.bcf
+main.fdb_latexmk
+main.fls
+main.run.xml
