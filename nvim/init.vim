@@ -25,20 +25,53 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'kien/ctrlp.vim' " You gotta love CtrlP
     Plug 'matze/vim-tex-fold'
-    Plug 'derekwyatt/vim-scala'
     Plug 'scrooloose/nerdtree' " Quick file explorer
     Plug 'easymotion/vim-easymotion' " Easymotion for enhanced f functionality
     Plug 'tpope/vim-obsession' " Vim Sessions to Support TMUX Resurrect
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
-    Plug 'posva/vim-vue' " Vue Syntax Higlighting
-    Plug 'leafgarland/typescript-vim' " TS Syntax Highlighting
-    Plug 'pangloss/vim-javascript' " JS Indentation
     Plug 'rhysd/vim-clang-format' " Clang format
     Plug 'psf/black' " Python code formatting
     Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax highlighting
+    Plug 'prabirshrestha/async.vim' " Code completlion
+    Plug 'prabirshrestha/vim-lsp' " Language server
 call plug#end()
 let g:deoplete#enable_at_startup = 1
+
+" Omnicomplete
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" vim-lsp
+
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['/usr/local/bin/pyls']},
+    \ 'allowlist': ['python'],
+    \ })
+
+autocmd FileType python setlocal omnifunc=lsp#complete
+
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'clangd',
+    \ 'cmd': {server_info->['/usr/bin/clangd-10', '--background-index']},
+    \ 'allowlist': ['c', 'cpp'],
+\ })
+
+autocmd FileType c setlocal omnifunc=lsp#complete
+autocmd FileType cpp setlocal omnifunc=lsp#complete
+autocmd FileType objc setlocal omnifunc=lsp#complete
+autocmd FileType objcpp setlocal omnifunc=lsp#complete
+
+nnoremap <Leader>d :LspDefinition<CR>
+nnoremap <Leader>i :LspImplementation<CR>
+nnoremap <Leader>r :LspRename<CR>
+
+" Disable auto popup
+let g:asyncomplete_auto_popup = 0
 
 " CtrlP Settings
 let g:ctrlp_root_markers = ['build.sbt', '*.latexmain', 'pom.xml']
@@ -70,7 +103,7 @@ vnoremap <C-c> "+y
 
 " Easymotion configuration
 let mapleader = ","
-let g:EasyMotion_leader_key = '<Leader>' 
+let g:EasyMotion_leader_key = '<Leader>'
 map <Leader> <Plug>(easymotion-prefix)
 
 " Mappings to access buffers (don't use "\p" because a
@@ -93,9 +126,6 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
-" Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
 " Useful commands if sloppy fingers
 :command WQ wq
 :command Wq wq
@@ -111,20 +141,6 @@ highlight ColorColumn guibg=gray
 au BufRead,BufNewFile *.gp setfiletype gnuplot
 au BufRead,BufNewFile *.tex setfiletype tex
 nnoremap <C-s> :syntax sync fromstart<CR>
-
-" CScope
-if has("cscope")
-    set csprg=/usr/local/bin/cscope
-    set csto=0
-    set cst
-    " add any database in current directory
-    if filereadable("cscope.out")
-        silent cs add cscope.out
-    " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        silent cs add $CSCOPE_DB
-    endif
-endif
 
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
