@@ -7,12 +7,13 @@ RUN apt-get install -y \
         curl \
         git \
         neovim \
-        python3-neovim \
         python3-pip \
         zsh
 
 # Clone the dotfiles repo
-RUN git clone https://github.com/csegarragonz/dotfiles ~/dotfiles
+RUN git clone \
+        -b v0.1.0 \
+        https://github.com/csegarragonz/dotfiles ~/dotfiles
 
 # Install vim plug
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

@@ -1,0 +1,18 @@
+" Minimalistic config file to work in servers
+
+" Aesthetics
+set relativenumber
+set colorcolumn=80
+set cursorline
+
+" Tabs into four spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" Useful commands if sloppy fingers
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
