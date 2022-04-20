@@ -3,3 +3,5 @@ zsh/oh-my-zsh/
 .tmux/resurrect
 .tmux/plugins
 external
+__pycache__
+*.pyc

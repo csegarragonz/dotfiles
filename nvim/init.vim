@@ -66,6 +66,8 @@ autocmd FileType cpp setlocal omnifunc=lsp#complete
 autocmd FileType objc setlocal omnifunc=lsp#complete
 autocmd FileType objcpp setlocal omnifunc=lsp#complete
 
+" NOTE: the leader key here is the default one (i.e. `\`) instead of the `,`
+" used later on.
 nnoremap <Leader>d :LspDefinition<CR>
 nnoremap <Leader>i :LspImplementation<CR>
 nnoremap <Leader>r :LspRename<CR>
@@ -102,6 +104,7 @@ nnoremap <C-H> <C-W><C-H>
 vnoremap <C-c> "+y
 
 " Easymotion configuration
+" NOTE: we use the new leader for easy motion, but not for LSP
 let mapleader = ","
 let g:EasyMotion_leader_key = '<Leader>'
 map <Leader> <Plug>(easymotion-prefix)

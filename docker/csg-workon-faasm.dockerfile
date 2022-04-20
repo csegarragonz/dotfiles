@@ -11,6 +11,7 @@ RUN apt-get install -y \
         clang-format-10 \
         clang-tidy-10 \
         ctags \
+        gdb \
         neovim \
         zsh
 
