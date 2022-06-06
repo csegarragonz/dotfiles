@@ -49,7 +49,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 au User lsp_setup call lsp#register_server({
     \ 'name': 'pyls',
-    \ 'cmd': {server_info->['/usr/local/bin/pyls']},
+    \ 'cmd': {server_info->['pyls']},
     \ 'allowlist': ['python'],
     \ })
 
@@ -71,6 +71,7 @@ autocmd FileType objcpp setlocal omnifunc=lsp#complete
 nnoremap <Leader>d :LspDefinition<CR>
 nnoremap <Leader>i :LspImplementation<CR>
 nnoremap <Leader>r :LspRename<CR>
+nnoremap <Leader>a :LspCodeAction<CR>
 
 " Disable auto popup
 let g:asyncomplete_auto_popup = 0

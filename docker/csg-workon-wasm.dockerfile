@@ -1,7 +1,7 @@
-ARG FAASM_VERSION
+ARG WAVM_VERSION
 FROM csegarragonz/base:0.1
 
-FROM faasm/cli:${FAASM_VERSION}
+FROM csegarragonz/wavm:${WAVM_VERSION}
 
 RUN apt-get update && apt-get upgrade -y
 
@@ -12,6 +12,8 @@ RUN apt-get install -y \
         clang-tidy-10 \
         ctags \
         gdb \
+        git \
+        python3-pip \
         neovim \
         zsh
 
@@ -28,9 +30,13 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade --force-reinstall neovim
 RUN pip3 install python-language-server[all]
 
+ENV PATH /build/bin:$PATH
+
 # Overwrite nvim config file with local version
 ARG DATE
 COPY ./nvim/init.vim /root/dotfiles/nvim/
 
 RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
-RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.zshrc
+RUN echo ". /code/bin/workon.sh" >> ~/.zshrc
+RUN echo ". /code/bin/workon.sh" >> ~/.bashrc
+CMD ["/bin/bash", "-l"]

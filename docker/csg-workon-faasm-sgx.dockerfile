@@ -1,7 +1,7 @@
 ARG FAASM_VERSION
 FROM csegarragonz/base:0.1
 
-FROM faasm/cli:${FAASM_VERSION}
+FROM faasm/cli-sgx-sim:${FAASM_VERSION}
 
 RUN apt-get update && apt-get upgrade -y
 

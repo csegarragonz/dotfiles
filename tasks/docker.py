@@ -9,6 +9,7 @@ PROJ_ROOT = dirname(dirname(realpath(__file__)))
 DOCKER_ROOT = join(PROJ_ROOT, "docker")
 FAASM_ROOT = "/home/csegarra/faasm"
 FAABRIC_ROOT = join(FAASM_ROOT, "faabric")
+WAVM_ROOT = "/home/csegarra/sof/WAVM"
 
 
 def get_faasm_version():
@@ -25,6 +26,13 @@ def get_faabric_version():
     return version
 
 
+def get_wavm_version():
+    with open(join(WAVM_ROOT, "VERSION"), "r") as fh:
+        version = fh.read()
+        version = version.strip()
+    return version
+
+
 def get_version():
     with open(join(PROJ_ROOT, "VERSION"), "r") as fh:
         version = fh.read()
@@ -33,23 +41,28 @@ def get_version():
 
 
 @task
-def build(target, nocache=False, push=False):
+def build(target, version=None, nocache=False, push=False):
     """
-    Build work-on container
+    Build work-on container: inv docker.build <container> [code-version]
     """
-    if target == "faasm":
-        version = get_faasm_version()
-        extra_arg = "--build-arg FAASM_VERSION={}".format(version)
+    if target == "faasm" or target == "faasm-sgx":
+        _version = version if version else get_faasm_version()
+        extra_arg = "--build-arg FAASM_VERSION={}".format(_version)
         # Force re-building everytime the last two steps
         extra_arg += " --build-arg DATE={}".format(time.time())
     elif target == "faabric":
-        version = get_faabric_version()
-        extra_arg = "--build-arg FAABRIC_VERSION={}".format(version)
+        _version = version if version else get_faabric_version()
+        extra_arg = "--build-arg FAABRIC_VERSION={}".format(_version)
+    elif target == "wasm":
+        _version = version if version else get_wavm_version()
+        extra_arg = "--build-arg WAVM_VERSION={}".format(_version)
+        # Force re-building everytime the last two steps
+        extra_arg += " --build-arg DATE={}".format(time.time())
     else:
-        version = get_version()
+        _version = get_version()
         extra_arg = ""
 
-    tag = "csegarragonz/{}:{}".format(target, version)
+    tag = "csegarragonz/{}:{}".format(target, _version)
     cmd = [
         "docker",
         "build",
@@ -73,7 +86,7 @@ def build_all(nocache=False, push=False):
     """
     Build all work-on containers
     """
-    ALL_TARGETS = ["base", "faasm", "web"]
+    ALL_TARGETS = ["base", "faasm", "web", "faasm-sgx", "faabric"]
     print("Building all targets: {}".format(ALL_TARGETS))
     for target in ALL_TARGETS:
         build(target)
