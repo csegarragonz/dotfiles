@@ -21,7 +21,6 @@ scriptencoding utf-8
 
 " Plugins (from vim-plug)
 call plug#begin('~/.vim/plugged')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'vim-airline/vim-airline'
     Plug 'kien/ctrlp.vim' " You gotta love CtrlP
     Plug 'matze/vim-tex-fold'
