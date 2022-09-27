@@ -13,3 +13,6 @@ main.bcf
 main.fdb_latexmk
 main.fls
 main.run.xml
+
+# Python stuff
+venv
