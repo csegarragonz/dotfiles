@@ -34,3 +34,5 @@ COPY ./nvim/init.vim /root/dotfiles/nvim/
 
 RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
 RUN echo ". /code/faabric/bin/workon.sh" >> ~/.zshrc
+
+RUN echo ". /code/faabric/bin/workon.sh" >> ~/.bashrc
