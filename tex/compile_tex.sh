@@ -8,16 +8,17 @@ if [ -f Makefile ];
 then
     make
 else
-    # We then look for the main tex file if there are various tex files
+    # We then look for the main tex file if there are various tex files this may
+    # not work
     filename="${1%%.*}"
     shopt -s nullglob
-    #for i in $(find "../" -maxdepth 2 -name "*.latexmain");
-    for i in *.latexmain;
+    for i in *.tex;
     do
-        #cd $(dirname $i)
-        #filename="$(basename $i)"
         filename="${i%%.*}"
     done
     filetexname="$filename.tex"
-    latexmk -pdf $filetexname
+    docker run --rm \
+        -v $(pwd):/workdir \
+        -u $(id -u):$(id -g) \
+        csegarragonz/latex-docker:0.1.2 ${filetexname}
 fi

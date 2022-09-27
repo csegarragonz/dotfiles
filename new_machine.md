@@ -10,6 +10,20 @@ sudo apt update && sudo apt upgrade -y
 
 TODO
 
+### Extra Ubuntu Tweaks that need a shell
+
+Switch to a workspace directly by number:
+
+```bash
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 "['<Primary><Alt>1']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-2 "['<Primary><Alt>2']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 "['<Primary><Alt>3']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 "['<Primary><Alt>4']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-5 "['<Primary><Alt>5']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-6 "['<Primary><Alt>6']"
+```
+
+
 ### Get the dotfiles repo
 
 ```
@@ -141,7 +155,7 @@ echo -e "Host csg-paris\n    HostName 163.172.155.43\n    User carlos\n    Ident
 Second configure the password store:
 
 ```
-sudo apt install -y gnupg2 pass
+sudo apt install -y gnupg2 pass wl-clipboard
 ssh csg-paris
 gpg2 --export-secret-keys carlos@carlossegarra.com > pkey.asc
 exit
