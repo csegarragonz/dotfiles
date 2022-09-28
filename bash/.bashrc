@@ -89,6 +89,9 @@ fi
 
 # Exports
 export EDITOR=nvim
+export FAASM_CLI_IMAGE=csegarragonz/faasm:$(cat ~/faasm/VERSION)
+export FAASM_SGX_CLI_IMAGE=csegarragonz/faasm-sgx:$(cat ~/faasm/VERSION)
+export FAABRIC_CLI_IMAGE=csegarragonz/faabric:$(cat ~/faasm/faabric/VERSION)
 
 # some more ls aliases
 alias ll='ls -alF'
