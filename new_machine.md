@@ -46,6 +46,7 @@ git config --global core.excludesfile ~/dotfiles/git/.gitignore_global
 
 ```
 ln -sf ~/dotfiles/bash/.bashrc
+ln -sf ~/dotfiles/bash/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/bash/.bash_aliases ~/.bash_aliases
 ```
 
