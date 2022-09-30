@@ -33,7 +33,7 @@ def get_wavm_version():
     return version
 
 
-def get_version():
+def get_dotfiles_version():
     with open(join(PROJ_ROOT, "VERSION"), "r") as fh:
         version = fh.read()
         version = version.strip()
@@ -48,8 +48,7 @@ def build(target, version=None, nocache=False, push=False):
     if target == "faasm" or target == "faasm-sgx":
         _version = version if version else get_faasm_version()
         extra_arg = "--build-arg FAASM_VERSION={}".format(_version)
-        # Force re-building everytime the last two steps
-        extra_arg += " --build-arg DATE={}".format(time.time())
+        extra_arg += " --build-arg DOTFILES_VERSION={}".format(get_dotfiles_version())
     elif target == "faabric":
         _version = version if version else get_faabric_version()
         extra_arg = "--build-arg FAABRIC_VERSION={}".format(_version)
@@ -59,7 +58,7 @@ def build(target, version=None, nocache=False, push=False):
         # Force re-building everytime the last two steps
         extra_arg += " --build-arg DATE={}".format(time.time())
     else:
-        _version = get_version()
+        _version = get_dotfiles_version()
         extra_arg = ""
 
     tag = "csegarragonz/{}:{}".format(target, _version)

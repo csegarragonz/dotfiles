@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get upgrade -y
 
@@ -7,25 +7,21 @@ RUN apt-get install -y \
         curl \
         git \
         neovim \
-        python3-pip \
-        zsh
+        python3-pip
 
 # Clone the dotfiles repo
 RUN git clone \
-        -b v0.1.0 \
+        -b v0.2.0 \
         https://github.com/csegarragonz/dotfiles ~/dotfiles
 
-# Install vim plug
+# Configure Neovim
+COPY --from=dotfiles /neovim/build/bin/nvim /usr/bin/nvim
+COPY --from=dotfiles /usr/local/share/nvim /usr/local/share/nvim
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Run all the symlinks
-RUN mkdir -p ~/.config/nvim
-RUN ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-RUN ln -s ~/dotfiles/nvim/after ~/.config/nvim/
-RUN ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/
-RUN ln -s ~/dotfiles/zsh/.zshrc_container ~/.zshrc
-RUN pip3 install black
-RUN pip3 install pynvim
-RUN nvim +PlugInstall +qa
-RUN nvim +PlugUpdate +qa
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    && mkdir -p .config/nvim/ \
+    && ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim \
+    && ln -s ~/dotfiles/nvim/after ~/.config/nvim/ \
+    && ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/ \
+    && nvim +PlugInstall +qa \
+    && nvim +PlugUpdate +qa
