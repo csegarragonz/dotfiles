@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'prabirshrestha/async.vim' " Code completlion
     Plug 'prabirshrestha/vim-lsp' " Language server
 call plug#end()
-let g:deoplete#enable_at_startup = 1
 
 " Omnicomplete
 

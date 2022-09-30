@@ -137,11 +137,18 @@ docker cp dotfiles:/st/st.info /tmp/st.info
 sudo tic -sx /tmp/st.info
 ```
 
-Lastly, make `st` the default terminal:
+Third, make `st` the default terminal:
 
 ```bash
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/st 50
 sudo update-alternatives --config x-terminal-emulator
+```
+
+Lastly, for proper emoji support, you will have to install the `fonts-symbola`
+package in _all_ servers you access to:
+
+```bash
+sudo apt install -y fonts-symbola
 ```
 
 ### Configure `pass` password store

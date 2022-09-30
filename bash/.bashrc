@@ -56,8 +56,18 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Special variable for dev. machines config
+KOALA_MACHINE="off"
+if [[ $(hostname -s) = koala* ]]; then
+    KOALA_MACHINE="on"
+fi
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    if [[ $KOALA_MACHINE == "on" ]]; then
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    else
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -89,6 +99,11 @@ fi
 
 # Exports
 export EDITOR=nvim
+if [[ $KOALA_MACHINE == "on" ]]; then
+    export FAASM_CLI_IMAGE=csegarragonz/faasm:$(cat ~/faasm/VERSION)
+    export FAASM_SGX_CLI_IMAGE=csegarragonz/faasm-sgx:$(cat ~/faasm/VERSION)
+    export FAABRIC_CLI_IMAGE=csegarragonz/faabric:$(cat ~/faasm/faabric/VERSION)
+fi
 
 # some more ls aliases
 alias ll='ls -alF'

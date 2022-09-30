@@ -16,3 +16,4 @@ main.run.xml
 
 # Python stuff
 venv
+__pycache__
