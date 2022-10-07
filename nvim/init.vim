@@ -55,7 +55,7 @@ autocmd FileType python setlocal omnifunc=lsp#complete
 
 au User lsp_setup call lsp#register_server({
     \ 'name': 'clangd',
-    \ 'cmd': {server_info->['/usr/bin/clangd-10', '--background-index']},
+    \ 'cmd': {server_info->['/usr/bin/clangd-13', '--background-index']},
     \ 'allowlist': ['c', 'cpp'],
 \ })
 
