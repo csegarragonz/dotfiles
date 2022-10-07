@@ -1,38 +1,38 @@
 ARG FAASM_VERSION
-FROM csegarragonz/base:0.1
-
+ARG DOTFILES_VERSION
+FROM csegarragonz/dotfiles:${DOTFILES_VERSION} as dotfiles
 FROM faasm/cli-sgx-sim:${FAASM_VERSION}
 
-RUN apt-get update && apt-get upgrade -y
-
 # Package installation
-RUN apt-get install -y \
-        clangd-10 \
-        clang-format-10 \
-        clang-tidy-10 \
-        ctags \
-        gdb \
-        neovim \
-        zsh
+RUN apt update && apt upgrade -y && apt install -y \
+    clangd-13 \
+    clang-format-13 \
+    clang-tidy-13 \
+    gdb \
+    git \
+    neovim \
+    zsh
 
-# Copy relevant files from parent image
-COPY --from=0 /root/dotfiles /root/dotfiles
-COPY --from=0 /root/.zshrc /root/.zshrc
-COPY --from=0 /root/.bashrc /root/.bashrc
-COPY --from=0 /root/.config/nvim /root/.config/nvim
-COPY --from=0 /root/.local/share/nvim /root/.local/share/nvim
-COPY --from=0 /root/.vim /root/.vim
+# Clone the dotfiles repo
+RUN git clone https://github.com/csegarragonz/dotfiles ~/dotfiles
 
-RUN apt remove -y python3-greenlet
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade --force-reinstall neovim
-RUN pip3 install python-language-server[all]
+# Configure Neovim
+# TODO: copy our own neovim when we bump the CLI to 22.04, otherwise they have
+# runtime dependencies that are incompatible
+# COPY --from=dotfiles /neovim/build/bin/nvim /usr/bin/nvim
+# COPY --from=dotfiles /usr/local/share/nvim /usr/local/share/nvim
+RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    && mkdir -p ~/.config/nvim/ \
+    && ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim \
+    && ln -s ~/dotfiles/nvim/after ~/.config/nvim/ \
+    && ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/
 
-# Overwrite nvim config file with local version
-ARG DATE
-COPY ./nvim/init.vim /root/dotfiles/nvim/
+RUN nvim +PlugInstall +qa \
+    && nvim +PlugUpdate +qa
 
-RUN echo 'PS1="%B%{$fg[red]%}[%{$fg[green]%}%B%c%{$fg[red]%}]%{$reset_color%}$%b "' >> ~/.zshrc
-RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.zshrc
-
-RUN echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.bashrc
+# Configure Bash
+RUN ln -sf ~/dotfiles/bash/.bashrc ~/.bashrc \
+    && ln -sf ~/dotfiles/bash/.bash_profile ~/.bash_profile \
+    && ln -sf ~/dotfiles/bash/.bash_aliases ~/.bash_aliases \
+    && echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.bashrc
