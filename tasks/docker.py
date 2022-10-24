@@ -48,7 +48,7 @@ def build(ctx, target, version=None, nocache=False, push=False):
     extra_arg = []
     if target == "faasm" or target == "faasm-sgx":
         _version = version if version else get_faasm_version()
-        base_name = "cli" if "sgx" not in target else "faasm-sgx-sim"
+        base_name = "cli" if "sgx" not in target else "cli-sgx-sim"
         source_dir = "/usr/local/code/faasm"
     elif target == "faabric":
         _version = version if version else get_faabric_version()
