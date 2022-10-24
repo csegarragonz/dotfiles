@@ -17,3 +17,6 @@ main.run.xml
 # Python stuff
 venv
 __pycache__
+
+# Clangd stuff
+.cache
