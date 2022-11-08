@@ -17,3 +17,6 @@ core
 # Python stuff
 venv
 __pycache__
+
+# Clangd stuff
+.cache

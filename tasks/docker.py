@@ -41,25 +41,29 @@ def get_dotfiles_version():
 
 
 @task
-def build(target, version=None, nocache=False, push=False):
+def build(ctx, target, version=None, nocache=False, push=False):
     """
     Build work-on container: inv docker.build <container> [code-version]
     """
+    extra_arg = []
     if target == "faasm" or target == "faasm-sgx":
         _version = version if version else get_faasm_version()
-        extra_arg = "--build-arg FAASM_VERSION={}".format(_version)
-        extra_arg += " --build-arg DOTFILES_VERSION={}".format(get_dotfiles_version())
+        base_name = "cli" if "sgx" not in target else "cli-sgx-sim"
+        source_dir = "/usr/local/code/faasm"
     elif target == "faabric":
         _version = version if version else get_faabric_version()
-        extra_arg = "--build-arg FAABRIC_VERSION={}".format(_version)
+        base_name = target
+        source_dir = "/code/faabric"
     elif target == "wasm":
         _version = version if version else get_wavm_version()
         extra_arg = "--build-arg WAVM_VERSION={}".format(_version)
         # Force re-building everytime the last two steps
-        extra_arg += " --build-arg DATE={}".format(time.time())
     else:
         _version = get_dotfiles_version()
-        extra_arg = ""
+    extra_arg.append("--build-arg IMAGE_BASE_NAME={}".format(base_name))
+    extra_arg.append("--build-arg IMAGE_SOURCE_DIR={}".format(source_dir))
+    extra_arg.append("--build-arg IMAGE_VERSION={}".format(_version))
+    extra_arg.append(" --build-arg DOTFILES_VERSION={}".format(get_dotfiles_version()))
 
     tag = "csegarragonz/{}:{}".format(target, _version)
     cmd = [
@@ -67,8 +71,8 @@ def build(target, version=None, nocache=False, push=False):
         "build",
         "--no-cache" if nocache else "",
         "-t {}".format(tag),
-        "-f {}/csg-workon-{}.dockerfile".format(DOCKER_ROOT, target),
-        "{}".format(extra_arg),
+        "-f {}/csg-workon-faasm.dockerfile".format(DOCKER_ROOT),
+        " ".join(extra_arg),
         ".",
     ]
 

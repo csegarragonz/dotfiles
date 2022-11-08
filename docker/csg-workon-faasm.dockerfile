@@ -1,10 +1,10 @@
-ARG FAASM_VERSION
 ARG DOTFILES_VERSION
+ARG IMAGE_BASE_NAME
+ARG IMAGE_VERSION
 FROM csegarragonz/dotfiles:${DOTFILES_VERSION} as dotfiles
-FROM faasm/cli:${FAASM_VERSION}
+FROM faasm/${IMAGE_BASE_NAME}:${IMAGE_VERSION}
 
-# Package installation
-RUN apt update && apt upgrade -y && apt install -y \
+RUN apt-get update && apt-get upgrade -y && apt install -y \
     clangd-13 \
     clang-format-13 \
     clang-tidy-13 \
@@ -32,7 +32,8 @@ RUN nvim +PlugInstall +qa \
     && nvim +PlugUpdate +qa
 
 # Configure Bash
+ARG IMAGE_SOURCE_DIR
 RUN ln -sf ~/dotfiles/bash/.bashrc ~/.bashrc \
     && ln -sf ~/dotfiles/bash/.bash_profile ~/.bash_profile \
     && ln -sf ~/dotfiles/bash/.bash_aliases ~/.bash_aliases \
-    && echo ". /usr/local/code/faasm/bin/workon.sh" >> ~/.bashrc
+    && echo ". ${IMAGE_SOURCE_DIR}/bin/workon.sh" >> ~/.bashrc
