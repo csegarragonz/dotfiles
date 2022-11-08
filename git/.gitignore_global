@@ -3,16 +3,16 @@ core
 
 # Latex related stuff
 *.latexmain
-main.aux
-main.bbl
-main.blg
-main.log
-main.out
-main.pdf
-main.bcf
-main.fdb_latexmk
-main.fls
-main.run.xml
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.bcf
+*.fdb_latexmk
+*.fls
+*.run.xml
 
 # Python stuff
 venv
