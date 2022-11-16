@@ -2,19 +2,21 @@ tags
 core
 
 # Latex related stuff
-*.latexmain
-main.aux
-main.bbl
-main.blg
-main.log
-main.out
-main.pdf
-main.bcf
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.bcf
 *.fdb_latexmk
 *.fls
-main.run.xml
+*.run.xml
 
 
 # Python stuff
 venv
 __pycache__
+
+# Clangd stuff
+.cache
