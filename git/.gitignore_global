@@ -8,7 +8,6 @@ core
 *.blg
 *.log
 *.out
-*.pdf
 *.bcf
 *.fdb_latexmk
 *.fls
