@@ -1,4 +1,4 @@
 #!/bin/bash
 
 VERSION=$(cat VERSION)
-docker build -t csegarragonz/dotfiles:${VERSION} .
+docker build -t csegarragonz/dotfiles:${VERSION} --no-cache .

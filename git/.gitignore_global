@@ -2,7 +2,6 @@ tags
 core
 
 # Latex related stuff
-*.latexmain
 *.aux
 *.bbl
 *.blg
@@ -12,6 +11,7 @@ core
 *.fdb_latexmk
 *.fls
 *.run.xml
+
 
 # Python stuff
 venv
