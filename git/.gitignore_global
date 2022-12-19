@@ -4,12 +4,13 @@ core
 # Latex related stuff
 *.aux
 *.bbl
-*.blg
-*.log
-*.out
 *.bcf
+*.blg
+*.cls
 *.fdb_latexmk
 *.fls
+*.log
+*.out
 *.run.xml
 
 
