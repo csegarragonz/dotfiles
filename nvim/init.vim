@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax highlighting
     Plug 'prabirshrestha/async.vim' " Code completlion
     Plug 'prabirshrestha/vim-lsp' " Language server
+    Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Omnicomplete
@@ -45,24 +46,35 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " vim-lsp
 
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'allowlist': ['python'],
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'allowlist': ['python'],
+        \ })
+    autocmd FileType python setlocal omnifunc=lsp#complete
+endif
+
+
+if executable('/usr/bin/clangd-13')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['/usr/bin/clangd-13', '--background-index']},
+        \ 'allowlist': ['c', 'cpp'],
     \ })
+    autocmd FileType c setlocal omnifunc=lsp#complete
+    autocmd FileType cpp setlocal omnifunc=lsp#complete
+    autocmd FileType objc setlocal omnifunc=lsp#complete
+    autocmd FileType objcpp setlocal omnifunc=lsp#complete
+endif
 
-autocmd FileType python setlocal omnifunc=lsp#complete
-
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'clangd',
-    \ 'cmd': {server_info->['/usr/bin/clangd-13', '--background-index']},
-    \ 'allowlist': ['c', 'cpp'],
-\ })
-
-autocmd FileType c setlocal omnifunc=lsp#complete
-autocmd FileType cpp setlocal omnifunc=lsp#complete
-autocmd FileType objc setlocal omnifunc=lsp#complete
-autocmd FileType objcpp setlocal omnifunc=lsp#complete
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \ })
+endif
 
 " NOTE: the leader key here is the default one (i.e. `\`) instead of the `,`
 " used later on.
