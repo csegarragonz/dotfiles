@@ -2,7 +2,7 @@ ARG DOTFILES_VERSION
 ARG IMAGE_BASE_NAME
 ARG IMAGE_VERSION
 FROM csegarragonz/dotfiles:${DOTFILES_VERSION} as dotfiles
-FROM faasm/${IMAGE_BASE_NAME}:${IMAGE_VERSION}
+FROM faasm.azurecr.io/${IMAGE_BASE_NAME}:${IMAGE_VERSION}
 
 RUN apt update \
     && apt upgrade -y \
