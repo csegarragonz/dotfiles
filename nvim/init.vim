@@ -82,6 +82,8 @@ nnoremap <Leader>d :LspDefinition<CR>
 nnoremap <Leader>i :LspImplementation<CR>
 nnoremap <Leader>r :LspRename<CR>
 nnoremap <Leader>a :LspCodeAction<CR>
+nnoremap <Leader>e :LspNextError<CR>
+nnoremap <Leader>w :LspNextWarning<CR>
 
 " Disable auto popup
 let g:asyncomplete_auto_popup = 0
