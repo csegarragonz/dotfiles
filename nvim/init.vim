@@ -80,7 +80,7 @@ endif
 " used later on.
 nnoremap <Leader>d :LspDefinition<CR>
 nnoremap <Leader>i :LspImplementation<CR>
-nnoremap <Leader>r :LspRename<CR>
+nnoremap <Leader>r :LspReferences<CR>
 nnoremap <Leader>a :LspCodeAction<CR>
 nnoremap <Leader>e :LspNextError<CR>
 nnoremap <Leader>w :LspNextWarning<CR>
