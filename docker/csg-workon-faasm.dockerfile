@@ -13,6 +13,12 @@ RUN apt update \
         gdb \
         git
 
+# Faasm-specific config
+RUN git config --global --add safe.directory /usr/local/code/faasm \
+    && git config --global --add safe.directory /usr/local/code/faasm/faabric \
+    && git config --global --add safe.directory /usr/local/code/faasm/clients/cpp \
+    && git config --global --add safe.directory /usr/local/code/faasm/clients/python
+
 # Clone the dotfiles repo
 RUN rm -rf ~/dotfiles \
     && mkdir -p ~/dotfiles \
