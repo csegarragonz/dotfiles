@@ -12,6 +12,8 @@ core
 *.log
 *.out
 *.run.xml
+*.nlo
+*.toc
 
 
 # Python stuff
