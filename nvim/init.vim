@@ -76,6 +76,15 @@ if executable('rust-analyzer')
         \ })
 endif
 
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \   'name': 'gopls',
+        \   'cmd': {server_info->['gopls']},
+        \   'allowlist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+endif
+
 " NOTE: the leader key here is the default one (i.e. `\`) instead of the `,`
 " used later on.
 nnoremap <Leader>d :LspDefinition<CR>
