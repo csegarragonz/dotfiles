@@ -11,9 +11,10 @@ set mail_check_stats
 set sidebar_format = "%D%?F? [%F]?%* %?N?%N/?%S"
 named-mailboxes "Gmail Inbox" "~/.mail/gmail/INBOX"
 named-mailboxes "Imperial Inbox" "~/.mail/imperial/Inbox"
+named-mailboxes "Ionos Inbox" "~/.mail/ionos/Inbox"
 
 set folder="~/.mail"
-mailboxes =imperial/Inbox =gmail/INBOX
+mailboxes =imperial/Inbox =gmail/INBOX =ionos/Inbox
 set sidebar_short_path
 
 # Move the highlight to the next mailbox

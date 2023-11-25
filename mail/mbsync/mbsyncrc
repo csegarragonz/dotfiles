@@ -52,3 +52,25 @@ Create Both
 Expunge Both
 Patterns * !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred" !"[Gmail]/Bin"
 SyncState *
+
+IMAPAccount ionos
+Host imap.ionos.es
+User carlos@carlossegarra.com
+PassCmd "pass Work/1and1/1and1_webmail"
+SSLType IMAPS
+
+IMAPStore ionos-remote
+Account ionos
+
+MaildirStore ionos-local
+Path ~/.mail/ionos/
+Inbox ~/.mail/ionos/Inbox
+Subfolders Verbatim
+
+Channel ionos
+Far :ionos-remote:
+Near :ionos-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *

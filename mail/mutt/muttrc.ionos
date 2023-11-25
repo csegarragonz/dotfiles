@@ -1,0 +1,21 @@
+set imap_user="carlos@carlossegarra.com"
+set from = "${imap_user}"
+set realname = "Carlos Segarra"
+set folder = "imaps://imap.ionos.es:993"
+set smtp_url = "smtp://smtp.ionos.es:587/"
+# set imap_authenticators="oauthbearer:xoauth2"
+set my_mutt_home = "/home/csegarra/dotfiles/mail/mutt"
+# set imap_oauth_refresh_command="${my_mutt_home}/mutt_oauth2.py ${my_mutt_home}/${imap_user}.tokens"
+# set smtp_authenticators=${imap_authenticators}
+# set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+
+set folder = "~/.mail/ionos"
+set mbox_type = Maildir
+set spoolfile = +Inbox
+set record = +Sent
+set postponed = +Drafts
+set header_cache = ~/.cache/mutt
+set sort = threads
+# Sort threads by last date recieved - newest first
+set sort_aux = reverse-last-date-received
+set date_format="%y/%m/%d %I:%M%p"
