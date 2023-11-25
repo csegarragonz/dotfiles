@@ -1,0 +1,54 @@
+IMAPAccount imperial
+Host outlook.office365.com
+User cs1620@ic.ac.uk
+AuthMechs XOAUTH2
+PassCmd "/home/csegarra/dotfiles/mail/mutt/mutt_oauth2.py '/home/csegarra/dotfiles/mail/mutt/cs1620@ic.ac.uk.tokens'"
+SSLType IMAPS
+SSLVersions TLSv1.1 TLSv1.2
+# Limit the amount of concurrent connections - recommended for MS Exchange
+PipelineDepth 5
+
+IMAPStore imperial-remote
+Account imperial
+
+MaildirStore imperial-local
+# Copy folder hierarchy
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/imperial/
+Inbox ~/.mail/imperial/Inbox
+
+Channel imperial
+Far :imperial-remote:
+Near :imperial-local:
+# Include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
+IMAPAccount gmail
+Host imap.gmail.com
+User carlossegarragonzalez@gmail.com
+AuthMechs XOAUTH2
+PassCmd "/home/csegarra/dotfiles/mail/mutt/mutt_oauth2.py '/home/csegarra/dotfiles/mail/mutt/carlossegarragonzalez@gmail.com.tokens'"
+SSLType IMAPS
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/INBOX
+Subfolders Verbatim
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Patterns *
+Create Both
+Expunge Both
+Patterns * !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred" !"[Gmail]/Bin"
+SyncState *
