@@ -5,7 +5,7 @@
 # Folder hooks
 folder-hook 'gmail' 'source ~/.config/mutt/muttrc.gmail'
 folder-hook 'imperial' 'source ~/.config/mutt/muttrc.imperial'
-folder-hook 'ionos' 'source ~/.config/mutt/ionos.imperial'
+folder-hook 'ionos' 'source ~/.config/mutt/muttrc.ionos'
 
 # Default account
 source ~/.config/mutt/muttrc.imperial
