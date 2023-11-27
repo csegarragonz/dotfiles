@@ -2,12 +2,33 @@
 
 This document is a cheatsheet for email usage with `mutt`.
 
+To-Do:
+* Key to rotate through mailboxes in sidebar
+* GMail authorization automatic
+
+## Quick Start
+
+To get up and running quickly:
+
+```bash
+inv mail.authorize --mailbox=gmail
+inv mail.sync
+neomutt
+inv mai.sync --push
+```
+
 ## Fetching Emails
 
 Fetching emails is done using `mbsync`. To fetch all emails, just run:
 
 ```bash
-mbsync -a
+inv mail.sync [--mailbox <>]
+```
+
+to propagate the changes you make locally, you just need to push them:
+
+```bash
+inv mail.sync --push [--mailbox <>]
 ```
 
 ## Navigating `mutt`

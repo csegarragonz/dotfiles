@@ -1,0 +1,1 @@
+MAILBOXES = ["gmail", "imperial", "ionos"]

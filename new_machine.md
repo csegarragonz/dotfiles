@@ -197,17 +197,6 @@ sudo apt install -y \
   mutt \
   sasl2-bin \
   w3m
-
-pip3 install icalendar khard urlscan
-```
-
-You can set up a cron job to do email work periodically:
-
-```bash
-TODO: we don't want to do this probably
-crontab -e
-# Then add the following line
-*/5 * * * * /home/csegarra/dotfiles/mail/sync.sh
 ```
 
 #### Configure MBScync
@@ -244,7 +233,6 @@ saslpluginviewer | grep XOAUTH2
 then, follow the respective instructions to configure different email accounts:
 * [outlook](#oauth2-token-for-outlook) - Imperial and other Outlook accounts.
 * [google](#oauth2-token-for-gmail) - personal gmail and other google accounts.
-* [other] - TODO (`carlossegarra.com`)
 
 Once all the accounts are configured, you can fetch all emails by running:
 
