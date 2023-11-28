@@ -24,6 +24,15 @@ auto_view text/html
 alternative_order text/plain text/enriched text/html
 
 # ------------
+# main pane visibility
+# ------------
+
+# These are the number of lines we keep showing of the mailbox while reading
+# an email
+set pager_index_lines   = 10
+set pager_context       = 3
+
+# ------------
 # sidebar
 # ------------
 
