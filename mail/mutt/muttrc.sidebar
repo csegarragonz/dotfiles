@@ -17,8 +17,12 @@ set folder="~/.mail"
 mailboxes =imperial/Inbox =gmail/INBOX =ionos/Inbox
 set sidebar_short_path
 
+# Move the highlight to the previous mailbox
+bind index,pager \Cp sidebar-prev
 # Move the highlight to the next mailbox
-# bind index,pager \Cn sidebar-next
+bind index,pager \Cn sidebar-next
+# Open the highlighted mailbox
+bind index,pager \Co sidebar-open
 
 #set sidebar_folder_indent=yes              # Indent folders whose names we've shortened
 #set sidebar_indent_string='   '          # Indent with two spaces
@@ -87,8 +91,6 @@ set sidebar_short_path
 ## FUNCTIONS - shown with an example mapping
 ## --------------------------------------------------------------------------
 #
-## Move the highlight to the previous mailbox
-#bind index,pager \Cp sidebar-prev
 #
 #
 ## # Open the highlighted mailbox
