@@ -12,6 +12,7 @@ RUN apt update && apt install -y \
     g++ \
     libidn2-dev \
     libharfbuzz-dev \
+    libssl-dev \
     libx11-dev \
     libxft-dev \
     libxml2-utils \
@@ -37,5 +38,7 @@ RUN git clone https://github.com/csg-projects/st \
 # Build the neomutt email client
 RUN git clone -b 20231103 https://github.com/neomutt/neomutt \
     && cd neomutt \
-    && ./configure --disable-doc \
+    && ./configure \
+        --disable-doc \
+        --ssl \
     && make
