@@ -40,7 +40,7 @@ source ~/.config/mutt/muttrc.sidebar
 
 # Temporarly, we install things in the user-local `pip` directory. If we
 # ever use `venv` change this path:
-set my_pip_bin_path = "/home/csegarra/.local/bin"
+set my_pip_bin_path = "/home/csegarra/dotfiles/venv/bin"
 
 # ------------
 # urlscan - Follow URLs in email
