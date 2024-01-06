@@ -18,7 +18,10 @@ macro index <f3> \
 macro index <f4> \
     '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.ionos<enter><change-folder>!<enter>'
 
-# To read HTML emails, we need to configure a mailcap file
+# ------------
+# Mailcap - configure how different file types are loaded
+# ------------
+
 set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -58,10 +61,12 @@ macro attach,compose ",u" \
 # Khard - Address Book Configuration
 # ------------
 
+# Complete emails with <Tab>
 set query_command = "${my_pip_bin_path}/khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
+# Note that this is a Capital A
 macro index,pager A \
   "<pipe-message> ${my_pip_bin_path}/khard add-email<return>" \
   "Add the sender email address to khard"
@@ -73,3 +78,9 @@ macro index,pager A \
 macro index,pager ",c" \
     ":unset wait_key\n | /home/csegarra/dotfiles/mail/calcurse/add_to_calcurse.sh<enter><exit>" \
     "Load an ICS calendar invite to calcurse"
+
+# ------------
+# Colors
+# ------------
+
+source ~/.config/mutt/muttrc.colors

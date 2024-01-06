@@ -1,0 +1,16 @@
+# --------------------------------------------------------------------------
+# Note: All color operations are of the form:
+#       color OBJECT FOREGROUND BACKGROUND
+# Color of the current, open, mailbox
+# Note: This is a general NeoMutt option which colors all selected items.
+# color indicator cyan white
+# Color of the highlighted, but not open, mailbox.
+color sidebar_highlight white color8
+# Color of the divider separating the Sidebar from NeoMutt panels
+color sidebar_divider color8 white
+# Color to give mailboxes containing flagged mail
+color sidebar_flagged red white
+# Color to give mailboxes containing new mail
+color sidebar_new green white
+# Color to give mailboxes containing no new/flagged mail, etc.
+color sidebar_ordinary color245 default
