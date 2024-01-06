@@ -12,6 +12,7 @@ RUN apt update && apt install -y \
     g++ \
     libidn2-dev \
     libharfbuzz-dev \
+    libsasl2-dev \
     libssl-dev \
     libx11-dev \
     libxft-dev \
@@ -40,5 +41,6 @@ RUN git clone -b 20231103 https://github.com/neomutt/neomutt \
     && cd neomutt \
     && ./configure \
         --disable-doc \
+        --sasl \
         --ssl \
     && make
