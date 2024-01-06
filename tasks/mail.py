@@ -10,8 +10,9 @@ def sync(ctx, mailbox=None, push=False):
     """
     Synch with remote mailboxes using `mbsync`
     """
-    # By default, sync from all mailboxes unless otherwise specified
-    sync_from = "-a"
+    # By default, sync from all mailboxes but the Gmail one, until we fix the
+    # config, and unless otherwise specified
+    sync_from = "imperial ionos"
     if mailbox is not None:
         if mailbox in MAILBOXES:
             sync_from = mailbox
@@ -20,8 +21,8 @@ def sync(ctx, mailbox=None, push=False):
 
     mbsync_cmd = [
         "mbsync",
+        "--push -dfn" if push else "",
         sync_from,
-        "--push -dfn" if push else ""
     ]
     mbsync_cmd = " ".join(mbsync_cmd)
 
