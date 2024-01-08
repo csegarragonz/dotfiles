@@ -63,7 +63,6 @@ def sync(ctx, mailbox=None, push=False):
 
     for mbox in sync_from.split(" "):
         mbox_home = join(MAIL_HOME, mbox)
-        print(mbox_home)
         if not exists(mbox_home):
             makedirs(mbox_home)
 
