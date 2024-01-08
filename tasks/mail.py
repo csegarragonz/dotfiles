@@ -1,8 +1,47 @@
 from invoke import task
-from os.path import join
+from os import makedirs
+from os.path import exists, join
 from subprocess import run
 from tasks.util.env import MUTT_ROOT
-from tasks.util.mail import MAILBOXES
+from tasks.util.mail import MAIL_HOME, MAILBOXES
+
+
+@task
+def install_deps(ctx):
+    """
+    Install the APT dependencies required to run the local mail set-up
+    """
+    apt_cmd = [
+        "sudo apt install -y",
+        "libsasl2-dev",
+        "isync",
+    ]
+    apt_cmd = " ".join(apt_cmd)
+
+    run(apt_cmd, shell=True, check=True)
+
+    # Also configure SASL2 to get XOAUTH2 to work
+    workdir = "/tmp/cyrus-sasl-xoauth2"
+    git_cmd = "git clone https://github.com/moriyoshi/cyrus-sasl-xoauth2.git {}".format(workdir)
+    run(git_cmd, shell=True, check=True)
+
+    build_cmd = "./autogen.sh && ./configure"
+    run(build_cmd, shell=True, check=True, cwd=workdir)
+
+    # SASL2 libraries on Ubuntu are in /usr/lib/x86_64-linux-gnu/; modify the Makefile accordingly
+    sed_cmd = [
+        "sed -i 's%pkglibdir = ${CYRUS_SASL_PREFIX}/lib/sasl2%pkglibdir",
+        "= ${CYRUS_SASL_PREFIX}/lib/x86_64-linux-gnu/sasl2%'",
+        "Makefile",
+    ]
+    sed_cmd = " ".join(sed_cmd)
+    run(sed_cmd, shell=True, check=True, cwd=workdir)
+
+    make_cmd = "make && sudo make install"
+    run(make_cmd, shell=True, check=True, cwd=workdir)
+
+    # Finally, clean-up
+    run("rm -rf {}".format(workdir), shell=True, check=True)
 
 
 @task
@@ -18,6 +57,15 @@ def sync(ctx, mailbox=None, push=False):
             sync_from = mailbox
         else:
             raise RuntimeError("Unrecognised mailbox: {}. Must be one in: {}".format(mailbox, MAILBOXES))
+
+    if not exists(MAIL_HOME):
+        makedirs(MAIL_HOME)
+
+    for mbox in sync_from.split(" "):
+        mbox_home = join(MAIL_HOME, mbox)
+        print(mbox_home)
+        if not exists(mbox_home):
+            makedirs(mbox_home)
 
     mbsync_cmd = [
         "mbsync",

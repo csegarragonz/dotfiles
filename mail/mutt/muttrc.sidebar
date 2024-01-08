@@ -9,12 +9,12 @@ set mail_check_stats
 
 # The %D configures neomutt to use the alias instead of the real mailbox
 set sidebar_format = "%D%?F? [%F]?%* %?N?%N/?%S"
-named-mailboxes "Gmail Inbox" "~/.mail/gmail/INBOX"
+# named-mailboxes "Gmail Inbox" "~/.mail/gmail/INBOX"
 named-mailboxes "Imperial Inbox" "~/.mail/imperial/Inbox"
 named-mailboxes "Ionos Inbox" "~/.mail/ionos/Inbox"
 
 set folder="~/.mail"
-mailboxes =imperial/Inbox =gmail/INBOX =ionos/Inbox
+mailboxes =imperial/Inbox =ionos/Inbox # =gmail/INBOX
 set sidebar_short_path
 
 # Move the highlight to the previous mailbox

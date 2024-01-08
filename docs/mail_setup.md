@@ -11,12 +11,21 @@ In this section we configure our terminal-based email + calendar configuration.
 First, you may install all dependencies using:
 
 ```bash
+inv mail.install-deps
+
+# TODO: remvoe this
 sudo apt install -y \
   isync \
   libsasl2-dev \
-  mutt \
   sasl2-bin \
   w3m
+```
+
+you also want to make sure that your `dotfiles` docker build-on image is up
+to date:
+
+```bash
+inv dotfiles.build
 ```
 
 ## Configure MBScync
@@ -27,29 +36,6 @@ MBSync fetches the emails from the corresponding email server:
 ln -sf ~/dotfiles/mail/mbsync/mbsyncrc ~/.mbsyncrc
 ```
 
-you may need to do some further config to get `XOAUTH2` to work:
-
-```bash
-# Copied from:
-# https://unix.stackexchange.com/questions/625637/configuring-mbsync-with-authmech-xoauth2
-# Clone the Cyrus SASL OAuth2 sources.
-git clone https://github.com/moriyoshi/cyrus-sasl-xoauth2.git
-
-# Configure and make.
-cd cyrus-sasl-xoauth2
-./autogen.sh
-./configure
-
-# SASL2 libraries on Ubuntu are in /usr/lib/x86_64-linux-gnu/; modify the Makefile accordingly
-sed -i 's%pkglibdir = ${CYRUS_SASL_PREFIX}/lib/sasl2%pkglibdir = ${CYRUS_SASL_PREFIX}/lib/x86_64-linux-gnu/sasl2%' Makefile
-
-make
-sudo make install
-
-# Verify XOAUTH2 is known to SASL.
-saslpluginviewer | grep XOAUTH2
-```
-
 then, follow the respective instructions to configure different email accounts:
 * [outlook](#oauth2-token-for-outlook) - Imperial and other Outlook accounts.
 * [google](#oauth2-token-for-gmail) - personal gmail and other google accounts.
@@ -57,13 +43,13 @@ then, follow the respective instructions to configure different email accounts:
 Once all the accounts are configured, you can fetch all emails by running:
 
 ```bash
-mbsync -a
+inv mail.sync
 ```
 
 to propagate the changes you make locally, you just need to push them:
 
 ```bash
-mbsync -a --push -dfn
+inv mail.sync --push
 ```
 
 ### OAuth2 Token for Outlook
@@ -75,8 +61,7 @@ If you have already done it, no need to do it again.
 As a result, you should be able to authenticate using the provided script:
 
 ```bash
-cd ~/dotfiles/mail/mutt/
-./mutt_oauth2.py -v -a 'cs1620@ic.ac.uk.tokens'
+inv mail.authorize --mailbox imperial
 
 # Pick
 microsoft
@@ -94,7 +79,7 @@ cd ~/dotfiles/mail/mutt/
 You should now be able to sync the emails using `mbsync`:
 
 ```bash
-mbsync imperial
+inv mail.sync --mailbox imperial
 ```
 
 ### OAuth2 Token for GMail

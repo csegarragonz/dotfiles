@@ -37,7 +37,7 @@ RUN git clone https://github.com/csg-projects/st \
     && make
 
 # Build the neomutt email client
-RUN git clone -b 20231103 https://github.com/neomutt/neomutt \
+RUN git clone -b 20231221 https://github.com/neomutt/neomutt \
     && cd neomutt \
     && ./configure \
         --disable-doc \
