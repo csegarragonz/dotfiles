@@ -61,6 +61,13 @@ More often than not, emails contain URLs. To follow one, do:
 # Press enter to open URL in $BROWSER
 ```
 
+### Selecting multiple emails to save to the same folder
+
+You can apply a tag to any email in the Inbox using the `t` key.
+
+Once you are done, run `;` + your command of choice (e.g. `s`) to apply the
+same command to all tagged emails.
+
 ### Changing mailboxes
 
 To change between different mailboxes, press Fn+F2/F3.

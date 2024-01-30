@@ -1,3 +1,4 @@
+application/pdf; evince %s
 image/png; eog %s
 text/calendar; python3 /home/csegarra/dotfiles/mail/calcurse/mutt_ics.py; copiousoutput
 text/html; $BROWSER %s
