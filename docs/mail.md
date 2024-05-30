@@ -39,7 +39,7 @@ We use `neomutt` so just type:
 neomutt
 ```
 
-### Deleting emails
+## Deleting emails
 
 To delete emails, just press `d` over an existing email. This will mark it with
 a `D`.
@@ -49,7 +49,7 @@ To undo the deletion, navigate to the email holding the SHIFT key.
 To commit the deletion (i.e. sync with the server), either close `mutt` or
 press the `$` key.
 
-### Opening URLs
+## Opening URLs
 
 More often than not, emails contain URLs. To follow one, do:
 
@@ -61,13 +61,17 @@ More often than not, emails contain URLs. To follow one, do:
 # Press enter to open URL in $BROWSER
 ```
 
-### Selecting multiple emails to save to the same folder
+## Selecting multiple emails to save to the same folder
 
 You can apply a tag to any email in the Inbox using the `t` key.
 
 Once you are done, run `;` + your command of choice (e.g. `s`) to apply the
 same command to all tagged emails.
 
-### Changing mailboxes
+## Changing mailboxes
 
 To change between different mailboxes, press Fn+F2/F3.
+
+## Add a Contact
+
+To add a contact, just press `A` on top of an email.
