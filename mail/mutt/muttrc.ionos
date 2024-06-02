@@ -5,6 +5,7 @@ set folder = "imaps://imap.ionos.es:993"
 set smtp_url = "smtps://${imap_user}@smtp.ionos.es:465"
 set my_pass="`pass Work/1and1/1and1_webmail`"
 set smtp_pass=$my_pass
+set smtp_authenticators=""
 set my_mutt_home = "/home/csegarra/dotfiles/mail/mutt"
 
 set folder = "~/.mail/ionos"
