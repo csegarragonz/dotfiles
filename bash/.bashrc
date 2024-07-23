@@ -100,9 +100,9 @@ fi
 # Exports
 export EDITOR=nvim
 if [[ $KOALA_MACHINE == "on" ]]; then
-    export FAASM_CLI_IMAGE=csegarragonz/faasm:$(cat ~/faasm/VERSION)
-    export FAASM_SGX_CLI_IMAGE=csegarragonz/faasm-sgx:$(cat ~/faasm/VERSION)
-    export FAABRIC_CLI_IMAGE=csegarragonz/faabric:$(cat ~/faasm/faabric/VERSION)
+    export FAASM_CLI_IMAGE=csegarragonz/faasm:$(cat ~/git/faasm/faasm/VERSION)
+    export FAASM_SGX_CLI_IMAGE=csegarragonz/faasm-sgx:$(cat ~/git/faasm/faasm/VERSION)
+    export FAABRIC_CLI_IMAGE=csegarragonz/faabric:$(cat ~/git/faasm/faasm/faabric/VERSION)
 fi
 
 # some more ls aliases
@@ -135,3 +135,4 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=/usr/local/bin:${PATH}
+. "$HOME/.cargo/env"

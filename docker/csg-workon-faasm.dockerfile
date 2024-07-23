@@ -7,9 +7,9 @@ FROM faasm.azurecr.io/${IMAGE_BASE_NAME}:${IMAGE_VERSION}
 RUN apt update \
     && apt upgrade -y \
     && apt install -y \
-        clangd-13 \
-        clang-format-13 \
-        clang-tidy-13 \
+        clangd-17 \
+        clang-format-17 \
+        clang-tidy-17 \
         gdb \
         git
 

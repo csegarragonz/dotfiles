@@ -7,7 +7,7 @@ from subprocess import run
 
 PROJ_ROOT = dirname(dirname(realpath(__file__)))
 DOCKER_ROOT = join(PROJ_ROOT, "docker")
-FAASM_ROOT = "/home/csegarra/faasm"
+FAASM_ROOT = "/home/csegarra/git/faasm/faasm"
 FAABRIC_ROOT = join(FAASM_ROOT, "faabric")
 WAVM_ROOT = "/home/csegarra/sof/WAVM"
 
