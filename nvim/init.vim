@@ -56,10 +56,10 @@ if executable('pyls')
 endif
 
 
-if executable('/usr/bin/clangd-13')
+if executable('/usr/bin/clangd-17')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
-        \ 'cmd': {server_info->['/usr/bin/clangd-13', '--background-index']},
+        \ 'cmd': {server_info->['/usr/bin/clangd-17', '--background-index']},
         \ 'allowlist': ['c', 'cpp'],
     \ })
     autocmd FileType c setlocal omnifunc=lsp#complete

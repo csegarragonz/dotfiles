@@ -61,9 +61,13 @@ KOALA_MACHINE="off"
 if [[ $(hostname -s) = koala* ]]; then
     KOALA_MACHINE="on"
 fi
+MILAN_MACHINE="off"
+if [[ $(hostname -s) = milan* ]]; then
+    MILAN_MACHINE="on"
+fi
 
 if [ "$color_prompt" = yes ]; then
-    if [[ $KOALA_MACHINE == "on" ]]; then
+    if [[ $KOALA_MACHINE == "on" || $MILAN_MACHINE == "on" ]]; then
         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     else
         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -99,7 +103,7 @@ fi
 
 # Exports
 export EDITOR=nvim
-if [[ $KOALA_MACHINE == "on" ]]; then
+if [[ $KOALA_MACHINE == "on" || $MILAN_MACHINE == "on" ]]; then
     export FAASM_CLI_IMAGE=csegarragonz/faasm:$(cat ~/git/faasm/faasm/VERSION)
     export FAASM_SGX_CLI_IMAGE=csegarragonz/faasm-sgx:$(cat ~/git/faasm/faasm/VERSION)
     export FAABRIC_CLI_IMAGE=csegarragonz/faabric:$(cat ~/git/faasm/faasm/faabric/VERSION)
