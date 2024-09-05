@@ -114,9 +114,9 @@ Lastly, soft-link the config files and install `vim-plug`:
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/.config/nvim/
-ln -s ${DOTFILES_DIR}/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ${DOTFILES_DIR}/nvim/after ~/.config/nvim/
-ln -s ${DOTFILES_DIR}/nvim/syntax ~/.config/nvim/
+ln -sf ${DOTFILES_DIR}/nvim/init.vim ~/.config/nvim/init.vim
+ln -sf ${DOTFILES_DIR}/nvim/after ~/.config/nvim/
+ln -sf ${DOTFILES_DIR}/nvim/syntax ~/.config/nvim/
 nvim +PlugInstall +qa
 nvim +PlugUpdate +qa
 ```
