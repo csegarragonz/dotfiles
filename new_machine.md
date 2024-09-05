@@ -27,9 +27,11 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-6 "['<Primary>
 ### Get the dotfiles repo
 
 ```
+export DOTFILES_DIR=<path>
+
 sudo apt install -y git
-git clone https://github.com/csegarragonz/dotfiles ~/dotfiles
-cd ~/dotfiles
+git clone https://github.com/csegarragonz/dotfiles ${DOTFILES_DIR}
+cd ${DOTFILES_DIR}
 ```
 
 ### Git config
@@ -45,9 +47,9 @@ git config --global core.excludesfile ~/dotfiles/git/.gitignore_global
 ### Bash configuration
 
 ```
-ln -sf ~/dotfiles/bash/.bashrc
-ln -sf ~/dotfiles/bash/.bash_profile ~/.bash_profile
-ln -sf ~/dotfiles/bash/.bash_aliases ~/.bash_aliases
+ln -sf ${DOTFILES_DIR}/bash/.bashrc
+ln -sf ${DOTFILES_DIR}/bash/.bash_profile ~/.bash_profile
+ln -sf ${DOTFILES_DIR}/bash/.bash_aliases ~/.bash_aliases
 ```
 
 ### Docker installation
@@ -81,8 +83,8 @@ newgrp docker
 
 ```bash
 sudo apt install -y tmux
-ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/dotiles/tmux ~/.tmux
+ln -s ${DOTFILES_DIR}/tmux/.tmux.conf ~/.tmux.conf
+ln -s ${DOTFILES_DIR}/tmux ~/.tmux
 ```
 
 ### Build dotfiles image
@@ -111,10 +113,10 @@ Lastly, soft-link the config files and install `vim-plug`:
 ```bash
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-mkdir -p .config/nvim/
-ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ~/dotfiles/nvim/after ~/.config/nvim/
-ln -s ~/dotfiles/nvim/syntax ~/.config/nvim/
+mkdir -p ~/.config/nvim/
+ln -s ${DOTFILES_DIR}/nvim/init.vim ~/.config/nvim/init.vim
+ln -s ${DOTFILES_DIR}/nvim/after ~/.config/nvim/
+ln -s ${DOTFILES_DIR}/nvim/syntax ~/.config/nvim/
 nvim +PlugInstall +qa
 nvim +PlugUpdate +qa
 ```
