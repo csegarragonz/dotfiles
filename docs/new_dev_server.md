@@ -41,7 +41,7 @@ Configure git:
 ```bash
 git config --global user.name "Carlos Segarra"
 git config --global user.email "carlos@carlossegarra.com"
-git config --global core.excludesfile ~/dotfiles/git/.gitignore_global
+git config --global core.excludesfile ${DOTFILES_DIR}/git/.gitignore_global
 ```
 
 ### Bash configuration
