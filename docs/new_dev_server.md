@@ -47,7 +47,7 @@ git config --global core.excludesfile ${DOTFILES_DIR}/git/.gitignore_global
 ### Bash configuration
 
 ```
-ln -sf ${DOTFILES_DIR}/bash/.bashrc
+ln -sf ${DOTFILES_DIR}/bash/.bashrc ~/.bashrc
 ln -sf ${DOTFILES_DIR}/bash/.bash_profile ~/.bash_profile
 ln -sf ${DOTFILES_DIR}/bash/.bash_aliases ~/.bash_aliases
 ```
