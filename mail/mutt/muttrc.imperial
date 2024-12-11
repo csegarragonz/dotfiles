@@ -1,4 +1,4 @@
-set imap_user="cs1620@ic.ac.uk"
+set imap_user="c.segarra@imperial.ac.uk"
 set from = "${imap_user}"
 set realname = "Carlos Segarra"
 set folder="imap://outlook.office365.com/"

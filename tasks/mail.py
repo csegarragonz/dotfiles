@@ -89,7 +89,7 @@ def authorize(ctx, mailbox, test=False):
     if mailbox == "gmail":
         token = join(MUTT_ROOT, "carlossegarragonzalez@gmail.com.tokens")
     elif mailbox == "imperial":
-        token = join(MUTT_ROOT, "cs1620@ic.ac.uk.tokens")
+        token = join(MUTT_ROOT, "c.segarra@imperial.ac.uk.tokens")
 
     cmd = [
         mutt_oauth,
