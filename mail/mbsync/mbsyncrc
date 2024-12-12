@@ -1,8 +1,8 @@
 IMAPAccount imperial
 Host outlook.office365.com
-User cs1620@ic.ac.uk
+User c.segarra@imperial.ac.uk
 AuthMechs XOAUTH2
-PassCmd "/home/csegarra/dotfiles/mail/mutt/mutt_oauth2.py '/home/csegarra/dotfiles/mail/mutt/cs1620@ic.ac.uk.tokens'"
+PassCmd "/home/csegarra/dotfiles/mail/mutt/mutt_oauth2.py '/home/csegarra/dotfiles/mail/mutt/c.segarra@imperial.ac.uk.tokens'"
 SSLType IMAPS
 SSLVersions TLSv1.1 TLSv1.2
 # Limit the amount of concurrent connections - recommended for MS Exchange

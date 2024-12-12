@@ -1,8 +1,10 @@
 set imap_user="c.segarra@imperial.ac.uk"
+set my_real_imap_user="cs1620@ic.ac.uk"
 set from = "${imap_user}"
 set realname = "Carlos Segarra"
 set folder="imap://outlook.office365.com/"
-set smtp_url="smtp://${imap_user}@smtp.office365.com:587/"
+# Must point SMTP server to the login email, not the alias
+set smtp_url="smtp://${my_real_imap_user}@smtp.office365.com:587/"
 set imap_authenticators="oauthbearer:xoauth2"
 set my_mutt_home = "/home/csegarra/dotfiles/mail/mutt"
 set imap_oauth_refresh_command="${my_mutt_home}/mutt_oauth2.py ${my_mutt_home}/${imap_user}.tokens"
