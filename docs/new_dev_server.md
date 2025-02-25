@@ -116,6 +116,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 mkdir -p ~/.config/nvim/
 ln -sf ${DOTFILES_DIR}/nvim/init.vim ~/.config/nvim/init.vim
 ln -sf ${DOTFILES_DIR}/nvim/after ~/.config/nvim/
+ln -sf ${DOTFILES_DIR}/nvim/ftdetect ~/.config/nvim/
 ln -sf ${DOTFILES_DIR}/nvim/syntax ~/.config/nvim/
 nvim +PlugInstall +qa
 nvim +PlugUpdate +qa
