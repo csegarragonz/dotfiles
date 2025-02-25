@@ -42,6 +42,7 @@ Configure git:
 git config --global user.name "Carlos Segarra"
 git config --global user.email "carlos@carlossegarra.com"
 git config --global core.excludesfile ${DOTFILES_DIR}/git/.gitignore_global
+git config --global alias.commit 'commit -s'
 ```
 
 ### Bash configuration
