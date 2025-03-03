@@ -22,6 +22,7 @@ scriptencoding utf-8
 " Plugins (from vim-plug)
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'kien/ctrlp.vim' " You gotta love CtrlP
     Plug 'matze/vim-tex-fold'
     Plug 'scrooloose/nerdtree' " Quick file explorer
@@ -30,7 +31,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'rhysd/vim-clang-format' " Clang format
-    Plug 'psf/black' " Python code formatting
     Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax highlighting
     Plug 'prabirshrestha/async.vim' " Code completlion
     Plug 'prabirshrestha/vim-lsp' " Language server
@@ -107,7 +107,7 @@ let g:ctrlp_custom_ignore = {
 
 " Colors
 set termguicolors
-set background=dark
+set background=light
 " colorscheme material
 " let g:material_theme_style = 'dark'
 " let g:airline_theme = 'material'

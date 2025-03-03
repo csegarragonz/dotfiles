@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 RUN apt update && apt install -y \
     autoconf \
@@ -26,9 +26,9 @@ RUN apt update && apt install -y \
     unzip
 
 # Build and install Neovim
-RUN git clone -b v0.7.2 https://github.com/neovim/neovim \
+RUN git clone -b v0.10.4 https://github.com/neovim/neovim \
     && cd neovim \
-    && make \
+    && make CMAKE_BUILD_TYPE=RelWithDebInfo \
     && make install
 
 # Build the ST terminal
