@@ -1,4 +1,4 @@
-## Instructions to set up new machine
+# Instructions to set up new machine
 
 Before you start, update and upgrade:
 
@@ -6,7 +6,34 @@ Before you start, update and upgrade:
 sudo apt update && sudo apt upgrade -y
 ```
 
-### Manual configuration of Ubuntu
+## Dev. environment set-up
+
+Clone this repository and build the dotfiles image:
+
+```
+export DOTFILES_DIR=<path>
+
+sudo apt install -y git
+git clone https://github.com/csegarragonz/dotfiles ${DOTFILES_DIR}
+cd ${DOTFILES_DIR}
+
+source ./bin/workon.sh
+inv dotfiles.build
+```
+
+then you may install all dependencies using:
+
+```
+inv dotfiles.install [--clean]
+```
+
+or a specific one with:
+
+```bash
+inv dotfiles.install --target [bash,git,nvim]
+```
+
+## Ubuntu configuration
 
 TODO
 
@@ -21,36 +48,6 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 "['<Primary>
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 "['<Primary><Alt>4']"
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-5 "['<Primary><Alt>5']"
 dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-6 "['<Primary><Alt>6']"
-```
-
-
-### Get the dotfiles repo
-
-```
-export DOTFILES_DIR=<path>
-
-sudo apt install -y git
-git clone https://github.com/csegarragonz/dotfiles ${DOTFILES_DIR}
-cd ${DOTFILES_DIR}
-```
-
-### Git config
-
-Configure git:
-
-```bash
-git config --global user.name "Carlos Segarra"
-git config --global user.email "carlos@carlossegarra.com"
-git config --global core.excludesfile ${DOTFILES_DIR}/git/.gitignore_global
-git config --global alias.commit 'commit -s'
-```
-
-### Bash configuration
-
-```
-ln -sf ${DOTFILES_DIR}/bash/.bashrc ~/.bashrc
-ln -sf ${DOTFILES_DIR}/bash/.bash_profile ~/.bash_profile
-ln -sf ${DOTFILES_DIR}/bash/.bash_aliases ~/.bash_aliases
 ```
 
 ### Docker installation
@@ -88,41 +85,6 @@ ln -s ${DOTFILES_DIR}/tmux/.tmux.conf ~/.tmux.conf
 ln -s ${DOTFILES_DIR}/tmux ~/.tmux
 ```
 
-### Build dotfiles image
-
-```bash
-./build.sh
-```
-
-### NVIM Installation
-
-First, run the dorfiles image:
-
-```bash
-./run.sh
-```
-
-Second, copy the corresponding nvim files:
-
-```bash
-sudo docker cp dotfiles:/neovim/build/bin/nvim /usr/bin/nvim
-sudo docker cp dotfiles:/usr/local/share/nvim /usr/local/share/nvim
-```
-
-Lastly, soft-link the config files and install `vim-plug`:
-
-```bash
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-mkdir -p ~/.config/nvim/
-ln -sf ${DOTFILES_DIR}/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ${DOTFILES_DIR}/nvim/after ~/.config/nvim/
-ln -sf ${DOTFILES_DIR}/nvim/ftdetect ~/.config/nvim/
-ln -sf ${DOTFILES_DIR}/nvim/syntax ~/.config/nvim/
-nvim +PlugInstall +qa
-nvim +PlugUpdate +qa
-```
-
 ### ST Installation
 
 First, run the dotfiles image if it's not running:
@@ -155,7 +117,7 @@ package in _all_ servers you access to:
 sudo apt install -y fonts-symbola
 ```
 
-### Configure `pass` password store
+## Configure `pass` password store
 
 First, configure credentials to access git server:
 
@@ -180,12 +142,4 @@ cd ~/.password-store
 git init
 git remote add origin csg-paris:git/keys/
 git pull origin master
-```
-
-### Clean up
-
-Once you are done, stop the builder docker image:
-
-```bash
-docker rm -f dotfiles
 ```

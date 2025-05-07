@@ -3,5 +3,5 @@ icalendar>=5.0.11
 invoke>=2.2.0
 khard>=0.18.0
 oauth2client>=4.1.3
-python-language-server[all]>=0.36.0
+python-lsp-server[all]>=1.12.0
 urlscan>=1.0.1
