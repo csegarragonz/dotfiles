@@ -35,6 +35,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'prabirshrestha/async.vim' " Code completlion
     Plug 'prabirshrestha/vim-lsp' " Language server
     Plug 'rust-lang/rust.vim'
+    Plug 'morhetz/gruvbox' " Color themes
 call plug#end()
 
 " Omnicomplete
@@ -108,9 +109,8 @@ let g:ctrlp_custom_ignore = {
 " Colors
 set termguicolors
 set background=dark
-" colorscheme material
-" let g:material_theme_style = 'dark'
-" let g:airline_theme = 'material'
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 " NERDTree Config
 let NERDTreeQuitOnOpen=1
