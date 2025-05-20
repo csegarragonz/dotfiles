@@ -72,7 +72,7 @@ def install(ctx, target=None, clean=False):
     """
     Install
     """
-    targets = ["bash", "git", "nvim"]
+    targets = ["bash", "git", "nvim", "tmux"]
     if target is not None:
         if target in targets:
             targets = [target]
@@ -94,7 +94,7 @@ def install(ctx, target=None, clean=False):
             configs = [
                 'user.name "Carlos Segarra"',
                 'user.email "carlos@carlossegarra.com"',
-                'code.excludesfile {PROJ_ROOT}/git/.gitignore_global',
+                f'code.excludesfile {PROJ_ROOT}/git/.gitignore_global',
                 'alias.commit "commit -s"',
             ]
             for config in configs:
@@ -125,6 +125,11 @@ def install(ctx, target=None, clean=False):
             run(f"ln -sf {nvim_src_dir}/init.vim {nvim_config_dir}/init.vim", shell=True, check=True)
             for nvim_target in ["after", "ftdetect", "syntax"]:
                 run(f"ln -sf {nvim_src_dir}/{nvim_target} {nvim_config_dir}", shell=True, check=True)
+
+        if target == "tmux":
+            run("sudo apt install -y tmux", shell=True, check=True)
+            run(f"ln -sf {PROJ_ROOT}/tmux/.tmux.conf ~/.tmux.conf", shell=True, check=True)
+            run(f"ln -sf {PROJ_ROOT}/tmux ~/.tmux", shell=True, check=True)
 
 
 @task

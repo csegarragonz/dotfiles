@@ -30,59 +30,7 @@ inv dotfiles.install [--clean]
 or a specific one with:
 
 ```bash
-inv dotfiles.install --target [bash,git,nvim]
-```
-
-## Ubuntu configuration
-
-TODO
-
-### Extra Ubuntu Tweaks that need a shell
-
-Switch to a workspace directly by number:
-
-```bash
-dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-1 "['<Primary><Alt>1']"
-dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-2 "['<Primary><Alt>2']"
-dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-3 "['<Primary><Alt>3']"
-dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-4 "['<Primary><Alt>4']"
-dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-5 "['<Primary><Alt>5']"
-dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-6 "['<Primary><Alt>6']"
-```
-
-### Docker installation
-
-First, install the package:
-
-```bash
-sudo apt install -y
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-```
-
-Lastly, do the post-config steps:
-
-```bash
-sudo groupadd docker
-sudo usermod -aG $USER
-newgrp docker
-```
-
-### TMUX installation
-
-```bash
-sudo apt install -y tmux
-ln -s ${DOTFILES_DIR}/tmux/.tmux.conf ~/.tmux.conf
-ln -s ${DOTFILES_DIR}/tmux ~/.tmux
+inv dotfiles.install --target [bash,git,nvim,tmux]
 ```
 
 ### ST Installation
@@ -140,6 +88,6 @@ gpg2 --import /tmp/pkey.asc
 rm /tmp/pkey.asc
 cd ~/.password-store
 git init
-git remote add origin csg-paris:git/keys/
+git remote add origin csg-paris:csg-pass
 git pull origin master
 ```
