@@ -6,7 +6,8 @@ PassCmd "/home/csegarra/dotfiles/mail/mutt/mutt_oauth2.py '/home/csegarra/dotfil
 SSLType IMAPS
 SSLVersions TLSv1.1 TLSv1.2
 # Limit the amount of concurrent connections - recommended for MS Exchange
-PipelineDepth 5
+Timeout 180
+PipelineDepth 1
 
 IMAPStore imperial-remote
 Account imperial

@@ -84,3 +84,21 @@ macro index,pager ",c" \
 # ------------
 
 source ~/.config/mutt/muttrc.colors
+
+# ------------
+# Push and pull images with ",p" (Push) and ",r" (Reload)
+# ------------
+
+macro index,pager ",r" \
+  "<enter-command>set wait_key=no<enter>\
+   <shell-escape>/bin/bash -lc './bin/inv_wrapper.sh mail.sync'<enter>\
+   <enter-command>set wait_key=yes<enter>\
+   <enter-command>check-stats<enter><sidebar-refresh><refresh>" \
+  "Sync mail (mbsync) and refresh"
+
+macro index,pager ",p" \
+  "<enter-command>set wait_key=no<enter>\
+   <shell-escape>/bin/bash -lc './bin/inv_wrapper.sh mail.sync --push'<enter>\
+   <enter-command>set wait_key=yes<enter>\
+   <enter-command>check-stats<enter><sidebar-refresh><refresh>" \
+  "Push updates to server"
