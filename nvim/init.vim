@@ -164,7 +164,6 @@ highlight ColorColumn guibg=gray
 " Custom FileType Definition, for mappings see after/ftplugin/
 " TODO this does not work
 au BufRead,BufNewFile *.gp setfiletype gnuplot
-au BufRead,BufNewFile *.tex setfiletype tex
 nnoremap <C-s> :syntax sync fromstart<CR>
 
 " Remove trailing whitespace
