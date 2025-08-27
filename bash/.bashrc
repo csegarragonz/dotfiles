@@ -103,7 +103,6 @@ fi
 
 # Exports
 export EDITOR=nvim
-export VIMRUNTIME=/usr/local/share/nvim/runtime
 if [ -d ~/git/faasm/faasm ]; then
     if [[ $KOALA_MACHINE == "on" || $MILAN_MACHINE == "on" ]]; then
         export FAASM_CLI_IMAGE=csegarragonz/faasm:$(cat ~/git/faasm/faasm/VERSION)
