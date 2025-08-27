@@ -86,6 +86,15 @@ if executable('gopls')
     autocmd FileType go setlocal omnifunc=lsp#complete
 endif
 
+" Make LaTeX the default flavor
+let g:tex_flavor = 'latex'
+
+augroup my_tex_filetype
+  autocmd!
+  " Force ALL .tex files to be LaTeX, even if built-in detection said 'plaintex'
+  autocmd BufRead,BufNewFile *.tex setlocal filetype=tex
+augroup END
+
 " NOTE: the leader key here is the default one (i.e. `\`) instead of the `,`
 " used later on.
 nnoremap <Leader>d :LspDefinition<CR>

@@ -1,1 +1,4 @@
-autocmd BufNewFile,BufRead *.tex set filetype=tex
+augroup ftdetect_tex
+  autocmd!
+  autocmd BufRead,BufNewFile *.tex setfiletype tex
+augroup END
