@@ -74,4 +74,4 @@ To change between different mailboxes, press Fn+F2/F3.
 
 ## Add a Contact
 
-To add a contact, just press `A` on top of an email.
+To add a contact, just press `A` on top of an email (capital `a`).

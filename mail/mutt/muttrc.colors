@@ -14,3 +14,6 @@ color sidebar_flagged red white
 color sidebar_new green white
 # Color to give mailboxes containing no new/flagged mail, etc.
 color sidebar_ordinary color245 default
+color index brightyellow black '~N'        # new messages
+color index brightyellow red   '~N'        # if you want a red background, for example
+
