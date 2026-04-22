@@ -94,6 +94,7 @@ def authorize(ctx, mailbox, test=False):
     cmd = [
         mutt_oauth,
         "-v",
+        "--authflow localhostauthcode",
         "-t" if test else "-a",
         token,
     ]
