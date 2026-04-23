@@ -4,7 +4,6 @@ TODO:
 * Configure calendar (at least viewing and accepting events) for Imperial
 * Configure email for Gmail
 * Configure calendar for Gmail
-* Configure `carlossegarra.com`
 * Sign emails with PGP key
 
 In this section we configure our terminal-based email + calendar configuration.
@@ -12,13 +11,6 @@ First, you may install all dependencies using:
 
 ```bash
 inv mail.install-deps
-
-# TODO: remvoe this
-sudo apt install -y \
-  isync \
-  libsasl2-dev \
-  sasl2-bin \
-  w3m
 ```
 
 you also want to make sure that your `dotfiles` docker build-on image is up
@@ -33,7 +25,7 @@ inv dotfiles.build
 MBSync fetches the emails from the corresponding email server:
 
 ```bash
-ln -sf ~/dotfiles/mail/mbsync/mbsyncrc ~/.mbsyncrc
+ln -sf ${DOTFILES_DIR}/mail/mbsync/mbsyncrc ~/.mbsyncrc
 ```
 
 then, follow the respective instructions to configure different email accounts:

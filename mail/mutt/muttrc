@@ -3,9 +3,13 @@
 # ------------
 
 # Folder hooks
-folder-hook 'gmail' 'source ~/.config/mutt/muttrc.gmail'
-folder-hook 'imperial' 'source ~/.config/mutt/muttrc.imperial'
-folder-hook 'ionos' 'source ~/.config/mutt/muttrc.ionos'
+# folder-hook 'gmail' 'source ~/.config/mutt/muttrc.gmail'
+# folder-hook 'imperial' 'source ~/.config/mutt/muttrc.imperial'
+# folder-hook 'ionos' 'source ~/.config/mutt/muttrc.ionos'
+
+folder-hook '~/.mail/gmail(/.*)?'    'source ~/.config/mutt/muttrc.gmail'
+folder-hook '~/.mail/imperial(/.*)?' 'source ~/.config/mutt/muttrc.imperial'
+folder-hook '~/.mail/ionos(/.*)?'    'source ~/.config/mutt/muttrc.ionos'
 
 # Default account
 source ~/.config/mutt/muttrc.imperial
@@ -30,6 +34,11 @@ alternative_order text/plain text/enriched text/html
 # main pane visibility
 # ------------
 
+# Compress the headers.
+set weed=yes
+ignore *
+unignore From: To: Cc: Date: Subject: Reply-To:
+
 # These are the number of lines we keep showing of the mailbox while reading
 # an email
 set pager_index_lines   = 10
@@ -43,7 +52,7 @@ source ~/.config/mutt/muttrc.sidebar
 
 # Temporarly, we install things in the user-local `pip` directory. If we
 # ever use `venv` change this path:
-set my_pip_bin_path = "/home/csegarra/dotfiles/venv/bin"
+set my_pip_bin_path = "/home/csegarra/git/csegarragonz/dotfiles/venv/bin"
 
 # ------------
 # urlscan - Follow URLs in email
@@ -76,7 +85,7 @@ macro index,pager A \
 # ------------
 
 macro index,pager ",c" \
-    ":unset wait_key\n | /home/csegarra/dotfiles/mail/calcurse/add_to_calcurse.sh<enter><exit>" \
+    ":unset wait_key\n | /home/csegarra/git/csegarragonz/dotfiles/mail/calcurse/add_to_calcurse.sh<enter><exit>" \
     "Load an ICS calendar invite to calcurse"
 
 # ------------

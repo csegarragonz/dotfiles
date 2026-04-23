@@ -2,6 +2,7 @@ FROM ubuntu:24.04
 
 RUN apt update && apt install -y \
     autoconf \
+    autoconf-archive \
     automake \
     build-essential \
     cmake \
@@ -43,4 +44,11 @@ RUN git clone -b 20231221 https://github.com/neomutt/neomutt \
         --disable-doc \
         --sasl \
         --ssl \
+    && make
+
+# Build calcurse calendar viewer.
+RUN  git clone -b v4.8.2 https://github.com/lfos/calcurse \
+    && cd calcurse \
+    && ./autogen.sh \
+    && ./configure --disable-docs \
     && make

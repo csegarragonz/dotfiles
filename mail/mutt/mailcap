@@ -1,10 +1,7 @@
 application/pdf; evince %s
-<<<<<<< Updated upstream
 image/jpeg; eog %s
-=======
->>>>>>> Stashed changes
 image/png; eog %s
-text/calendar; python3 /home/csegarra/dotfiles/mail/calcurse/mutt_ics.py; copiousoutput
+text/calendar; python3 /home/csegarra/git/csegarragonz/dotfiles/mail/calcurse/mutt_ics.py; copiousoutput
 text/html; $BROWSER %s
 text/html; w3m -I %{charset} -T text/html -dump; copiousoutput;
 text/pdf; evince %s

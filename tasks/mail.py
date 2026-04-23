@@ -14,7 +14,9 @@ def install_deps(ctx):
     apt_cmd = [
         "sudo apt install -y",
         "libsasl2-dev",
+        "mailcap",
         "isync",
+        "w3m",
     ]
     apt_cmd = " ".join(apt_cmd)
 

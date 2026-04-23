@@ -2,7 +2,7 @@ from invoke import task
 from os.path import dirname, exists, expanduser, join
 from subprocess import run
 from sys import exit
-from tasks.util.env import DOTFILES_CTR_IMAGE, DOTFILES_CTR_NAME, PROJ_ROOT
+from tasks.util.env import DOTFILES_CTR_IMAGE, DOTFILES_CTR_NAME, MAIL_ROOT, MUTT_ROOT, PROJ_ROOT
 from tasks.util.install import start_ctr, stop_ctr
 
 
@@ -72,7 +72,7 @@ def install(ctx, target=None, clean=False):
     """
     Install
     """
-    targets = ["bash", "git", "nvim", "tmux"]
+    targets = ["bash", "git", "nvim", "tmux", "mail"]
     if target is not None:
         if target in targets:
             targets = [target]
@@ -83,6 +83,7 @@ def install(ctx, target=None, clean=False):
 
     for target in targets:
         if target == "bash":
+            print("INFO: installing bash config.")
             src_dir = join(PROJ_ROOT, "bash")
             dst_dir = expanduser("~")
             for file in [".bashrc", ".bash_profile", ".bash_aliases"]:
@@ -91,6 +92,7 @@ def install(ctx, target=None, clean=False):
                 run(f"ln -sf {src_path} {dst_path}", shell=True, check=True)
 
         if target == "git":
+            print("INFO: installing git config.")
             configs = [
                 'user.name "Carlos Segarra"',
                 'user.email "carlos@carlossegarra.com"',
@@ -101,6 +103,7 @@ def install(ctx, target=None, clean=False):
                 run(f"git config --global {config}", shell=True, check=True)
 
         if target == "nvim":
+            print("INFO: installing nvim config.")
             if clean:
                 run("sudo rm -rf /usr/local/share/nvim", shell=True, check=True)
 
@@ -127,9 +130,45 @@ def install(ctx, target=None, clean=False):
                 run(f"ln -sf {nvim_src_dir}/{nvim_target} {nvim_config_dir}", shell=True, check=True)
 
         if target == "tmux":
+            print("INFO: installing tmux config.")
             run("sudo apt install -y tmux", shell=True, check=True)
             run(f"ln -sf {PROJ_ROOT}/tmux/.tmux.conf ~/.tmux.conf", shell=True, check=True)
             run(f"ln -sf {PROJ_ROOT}/tmux ~/.tmux", shell=True, check=True)
+
+        if target == "mail":
+            print("INFO: installing mail config.")
+
+            # Neomutt.
+            mutt_config_dir = join(expanduser("~"), ".config", "mutt")
+            run(f"mkdir -p {mutt_config_dir}", shell=True, check=True)
+            for file_name in ["muttrc", "muttrc.imperial", "muttrc.gmail", "muttrc.sidebar", "muttrc.colors", "mailcap"]:
+                run(f"ln -sf {MUTT_ROOT}/{file_name} {mutt_config_dir}/{file_name}",
+                    shell=True,
+                    check=True)
+            copy_from_dotfiles_image(
+                ["/neomutt/neomutt"],
+                ["/usr/bin/neomutt"],
+                requires_sudo=True,
+            )
+
+            # Khard.
+            khard_config_dir = join(expanduser("~"), ".config", "khard")
+            run(f"mkdir -p {khard_config_dir}", shell=True, check=True)
+            contact_base_dir = join(expanduser("~"), ".contacts")
+            for contact_dir in ["imperial", "ionos"]:
+                run(f"mkdir -p {contact_base_dir}/{contact_dir}",
+                    shell=True,
+                    check=True)
+            run(f"ln -sf {MAIL_ROOT}/khard/khard.conf {khard_config_dir}/khard.conf",
+                shell=True,
+                check=True)
+
+            # CalDav.
+            caldav_config = join(expanduser("~"), ".config", "calcurse", "caldav")
+            run(f"mkdir -p {caldav_config}", shell=True, check=True)
+            run(f"ln -sf {MAIL_ROOT}/calcurse/caldav.config {caldav_config}/config",
+                shell=True,
+                check=True)
 
 
 @task
