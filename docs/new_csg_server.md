@@ -9,14 +9,8 @@ server.
 
 This document includes instructions to provision a new CSG server from scratch.
 
-Currently, we use a Scaleway `DEV-M` server, which is accessible at the
-following IP:
-
-```bash
-ssh csegarra@163.172.177.63
-```
-
-the server only allows public-key logging, so you will have to get your public
+Currently, we use a Hetzner cloud server, you may find the IP in the portal.
+The server only allows public-key logging, so you will have to get your public
 key in there.
 
 ## Setting-up the `pass` server
@@ -52,7 +46,7 @@ Second, to deploy the website, make sure that the IP and username variables in
 the `csg-web/tasks/deploy.py` are updated, then, clone the repo in the server:
 
 ```bash
-ssh csg-paris
+ssh csg-helsinki
 git clone https://github.com/csegarragonz/csg-web.git
 ```
 
@@ -61,9 +55,6 @@ in addition, you will have to install and run the `certbot` configuration once:
 ```bash
 sudo apt install -y certbot python3-certbot-apache
 sudo certbot certonly --standalone
-
-# Add crontab entry
-0 */12 * * * /home/csegarra/csg-web/bin/renew_certs.sh
 ```
 
 Then, follow the instructions to deploy a self-hosted GitHub runner on the
